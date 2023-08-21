@@ -13,6 +13,7 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
+        'card-hover': 'hsl(0, 0%, 0%, 0.7)',
         neutral: {
           100: 'hsl(0, 0%, 85%)',
           400: 'hsl(0, 0%, 50%)',

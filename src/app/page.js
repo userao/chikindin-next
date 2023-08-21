@@ -1,5 +1,4 @@
 "use client";
-import { useEffect } from "react";
 
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Autoplay } from "swiper/modules";
