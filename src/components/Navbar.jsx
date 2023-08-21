@@ -12,16 +12,16 @@ const Navbar = () => {
         </div>
         <ul className="flex items-center gap-navbar-links uppercase">
           <li className="">
-            <Link href="about-us">О нас</Link>
+            <Link href="/about-us">О нас</Link>
           </li>
           <li className="">
-            <Link href="our-work">Наши работы</Link>
+            <Link href="/our-work">Наши работы</Link>
           </li>
           <li className="">
-            <Link href="services">Услуги</Link>
+            <Link href="/services">Услуги</Link>
           </li>
           <li className="">
-            <Link href="contacts">Контакты</Link>
+            <Link href="/contacts">Контакты</Link>
           </li>
         </ul>
       </div>
