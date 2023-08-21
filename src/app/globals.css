@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Comfortaa";
+  src: url(/fonts/Comfortaa-SemiBold.ttf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Comfortaa";
+  src: url(/fonts/Comfortaa-Regular.ttf);
+  font-weight: 400;
+}

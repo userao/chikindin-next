@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -12,8 +12,6 @@ import "swiper/css/scrollbar";
 // todo:
 // -сделать не уебищно
 const OurWork = () => {
-  // const [images, setImages] = React.useState([]);
-
   const projectCards = [
     {
       imagePath: "images/our-work/Rectangle 5.png",
@@ -38,9 +36,8 @@ const OurWork = () => {
   ]
 
   return (
-    <div className="h-full">
-      <Swiper
-        // modules={}
+    <div className="">
+      {/* <Swiper
         spaceBetween={5}
         slidesPerView={4}
         onSwiper={(swiper) => console.log(swiper)}
@@ -52,7 +49,7 @@ const OurWork = () => {
             </SwiperSlide>
             )
           })}
-      </Swiper>
+      </Swiper> */}
     </div>
   );
 };
