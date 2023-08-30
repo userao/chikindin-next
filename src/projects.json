@@ -1,47 +1,26 @@
 [
   {
     "id": 1,
-    "imagePath": "images/our-work/interior_1.png",
-    "projectName": "Спа на Кедровой",
-    "projectDescription": "проект спа-отелей в Новосибирске",
-    "location": "улица Пушкина, дом Колотушкина",
-    "year": 2023,
-    "use": "Спа-отель"
+    "name": "Галактика 1.0",
+    "year": 2022,
+    "location": "Россия",
+    "projectDescription": null,
+    "use": null
   },
   {
     "id": 2,
-    "imagePath": "images/our-work/interior_2.png",
-    "projectName": "Lorem, ipsum dolor.",
-    "projectDescription": "Lorem ipsum dolor sit amet.",
-    "location": "улица Пушкина, дом Колотушкина",
+    "name": "ЖК Шевченко",
     "year": 2022,
-    "use": "123"
+    "location": "Россия",
+    "projectDescription": "Интерьер квартиры олицетворяет собой сочетание функциональности, комфорта и элегантности, что и было запросом заказчицы.",
+    "use": null
   },
   {
     "id": 3,
-    "imagePath": "images/our-work/interior_3.png",
-    "projectName": "Lorem, ipsum dolor.",
-    "projectDescription": "Lorem ipsum dolor sit amet.",
-    "location": "улица Пушкина, дом Колотушкина",
-    "year": 2021,
-    "use": "124"
-  },
-  {
-    "id": 4,
-    "imagePath": "images/our-work/interior_4.png",
-    "projectName": "Lorem, ipsum dolor.",
-    "projectDescription": "Lorem ipsum dolor sit amet.",
-    "location": "улица Пушкина, дом Колотушкина",
-    "year": 2020,
-    "use": "125"
-  },
-  {
-    "id": 5,
-    "imagePath": "images/our-work/interior_5.png",
-    "projectName": "Lorem, ipsum dolor.",
-    "projectDescription": "Lorem ipsum dolor sit amet.",
-    "location": "улица Пушкина, дом Колотушкина",
-    "year": 2024,
-    "use": "126"
+    "name": "Спа на Кедровой",
+    "year": 2023,
+    "location": "Россия",
+    "projectDescription": "Обилие натуральных материалов, органичное сочетание света и тени, декоративные приемы, создающие ощущение природной гармонии – все это образует уникальную атмосферу номера спа-отеля в современном стиле с влиянием ваби-саби. Индивидуальные помещения хамама и парной добавляют возможность полного расслабления и изоляции для гостей, которые предпочитают приватность.",
+    "use": null
   }
 ]

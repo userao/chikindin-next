@@ -19,7 +19,7 @@ export default function ProjectsCarousel({ projects }) {
             >
               <Link href={`our-work/${project.id}`}>
                 <img
-                  src={project.imagePath}
+                  src={`${project.imagesPath}/1/1.jpg`}
                   alt={project.projectName}
                   className="h-full object-cover w-full"
                 />

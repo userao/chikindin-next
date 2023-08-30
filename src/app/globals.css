@@ -12,3 +12,7 @@
   src: url(/fonts/Comfortaa-Regular.ttf);
   font-weight: 400;
 }
+
+.home-carousel > .swiper-wrapper {
+  transition-timing-function: linear;
+}

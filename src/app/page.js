@@ -1,39 +1,32 @@
-"use client";
+import HomeCarousel from "@/components/HomeCarousel";
+import TextSpinner from "@/components/TextSpinner";
+import * as path from 'path';
+import fs from 'fs/promises';
+import routes from "@/utils/routes";
+import paths from '@/utils/paths';
+import getFolderContent from "@/utils/getFolderContent";
+import getRandomProjectImagePath from "@/utils/getRandomProjectImagePath";
 
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/autoplay";
 
-export default function Home() {
-  const imagesPaths = [
-    "images/home/carousel_image_1.png",
-    "images/home/carousel_image_2.png",
-    "images/home/carousel_image_3.png",
-    "images/home/carousel_image_4.png",
-  ];
+export default async function Home() {
+  const req = await fetch(routes.getProjects());
+  const projects = await req.json();
+
+  const cards = await Promise.all(projects.map(async (project) => {
+    const randomProjectImagePath = await getRandomProjectImagePath(project.id);
+    const sliceFrom = randomProjectImagePath.indexOf('images');
+    const pathForImgSrc = randomProjectImagePath.slice(sliceFrom);
+    
+    return {
+      imagePath: pathForImgSrc,
+      projectName: project.name,
+    }
+  }));
 
   return (
     <section className="h-screen-no-scroll">
-      <Swiper
-        modules={[Autoplay]}
-        spaceBetween={5}
-        slidesPerView={1.5}
-        autoplay={true}
-        className="h-full"
-      >
-        {imagesPaths.map((path, i) => {
-          return (
-            <SwiperSlide key={i} className="overflow-hidden">
-              <img
-                src={path}
-                alt={`Interior number ${i}`}
-                className="h-full object-cover"
-              />
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+      <TextSpinner text={'chikindin design'} radius={150} />
+      <HomeCarousel cards={cards}/>
     </section>
   );
 }

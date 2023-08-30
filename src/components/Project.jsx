@@ -1,7 +1,7 @@
 export default function Project({ project }) {
   const {
     id,
-    imagePath,
+    imagesPath,
     projectName,
     projectDescription,
     location,
@@ -13,7 +13,7 @@ export default function Project({ project }) {
     <div>
       <div className="h-screen relative">
         <img
-          src={`../../${imagePath}`}
+          src={`../../${imagesPath}/1/1.jpg`}
           alt={projectName}
           className="h-full object-cover w-full"
         />
