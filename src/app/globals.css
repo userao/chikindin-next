@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --clr-white: #FFF;
+
+  --clr-neutral-100: hsl(0, 0%, 85%);
+  --clr-neutral-400: hsl(0, 0%, 50%);
+  --clr-neutral-700: hsl(0, 0%, 25%);
+
+  --clr-brand-primary-100: hsl(231, 100%, 85%);
+  --clr-brand-primary-400: hsl(230, 100%, 50%);
+  --clr-brand-primary-700: hsl(230, 100%, 25%);
+}
+
 @font-face {
   font-family: "Comfortaa";
   src: url(/fonts/Comfortaa-SemiBold.ttf);

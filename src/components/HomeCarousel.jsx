@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 
 export default function HomeCarousel({ cards }) {
-  const carouselSpeed = 15000;
+  const carouselSpeed = 20000;
 
   return (
     <>

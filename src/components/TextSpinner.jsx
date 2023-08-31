@@ -18,10 +18,10 @@ export default function TextSpinner({ text, radius, color }) {
   for (let i = 0; i < numberOfTextRepetitions; i += 1) {
     const startAngle = i * (textAngleSize + spaceBetweenTextBlocksAngle);
     text.split("").forEach((ch, j) => {
-      const classes = cn("absolute", "origin-bottom", "w-5");
+      const charClasses = cn("absolute", "origin-bottom", "w-5");
       const element = (
         <p
-          className={classes}
+          className={charClasses}
           style={{
             height: radius,
             transform: `rotate(${j * charStepAngle + startAngle}deg)`,
@@ -34,10 +34,23 @@ export default function TextSpinner({ text, radius, color }) {
     });
   }
 
+  const containerClasses = cn(
+    "fixed",
+    "top-5",
+    "right-[8rem]",
+    "text-center",
+    "text-sm",
+    "z-50",
+    'hidden',
+    'md:block',
+  );
+
   return (
     <div
-      className='fixed top-10 right-10 text-center text-sm flex justify-center z-50  opacity-0 lg:opacity-100'
-      style={{ width: radius * 2, height: radius * 2 }}
+      className={containerClasses}
+      style={{
+        color: `var(--clr-${color})`,
+      }}
     >
       {charElements}
     </div>
