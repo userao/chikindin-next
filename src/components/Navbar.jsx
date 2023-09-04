@@ -11,16 +11,16 @@ const Navbar = () => {
           </Link>
         </div>
         <ul className="flex items-center gap-navbar-links uppercase">
-          <li className="">
+          <li className="hover:text-brand-primary-400 duration-300">
             <Link href="/about-us">О нас</Link>
           </li>
-          <li className="">
+          <li className="hover:text-brand-primary-400 duration-300">
             <Link href="/our-work">Наши работы</Link>
           </li>
-          <li className="">
+          <li className="hover:text-brand-primary-400 duration-300">
             <Link href="/services">Услуги</Link>
           </li>
-          <li className="">
+          <li className="hover:text-brand-primary-400 duration-300">
             <Link href="/contacts">Контакты</Link>
           </li>
         </ul>

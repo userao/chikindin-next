@@ -35,6 +35,7 @@ module.exports = {
       },
       fontFamily: {
         'primary': ['Comfortaa', 'sans-serif'],
+        'list-marker': ['Indie Flower', 'cursive'],
       },
     },
   },

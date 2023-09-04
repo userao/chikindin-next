@@ -6,7 +6,11 @@ import React from "react";
 const AboutUs = () => {
   return (
     <section className="p-[8rem]">
-      <TextSpinner text={"chikindin design"} radius={150} color={'brand-primary-400'} />
+      <TextSpinner
+        text={"chikindin design"}
+        radius={150}
+        color={"brand-primary-400"}
+      />
       <h1 className="uppercase text-2xl mb-8 font-bold">О нас</h1>
       <p className="mb-8 font-bold text-xl w-2/3">
         Мы - Регина и Олег Чикиндины, семейная дизайн-студия, где каждый проект
@@ -34,27 +38,43 @@ const AboutUs = () => {
         реализации. Наша цель — сделать процесс максимально комфортным и
         беззаботным для вас.
       </p>
-      <div className="relative w-full md:w-2/3 lg:w-1/2">
+      <div className="relative w-full md:w-3/4 lg:w-1/2 group">
         <img
-          className="absolute -start-[90px] -top-[70px]"
+          className="absolute -start-[110px] -top-[70px]
+            group-hover:-start-[90px]
+            group-hover:-top-[60px]
+            duration-500"
           src="svg/arrow1.svg"
           alt="brand logo"
         />
         <img
-          className="absolute -start-[60px] -top-[100px]"
+          className="absolute -start-[90px] -top-[120px]
+            group-hover:-start-[80px]
+            group-hover:-top-[95px]
+            duration-500"
           src="svg/arrow2.svg"
           alt="brand logo"
         />
-        <button className="border-[3px] border-brand-primary-400 rounded-xl p-4 text-neutral-400 w-full">
+        <button
+          className="border-[3px] border-brand-primary-400
+          rounded-xl p-4 text-neutral-400 w-full
+          group-hover:bg-brand-primary-400 group-hover:text-white duration-500"
+        >
           оставьте заявку на просчет стоймости проекта
         </button>
         <img
-          className="absolute -end-[110px] -top-[70px]"
+          className="absolute -end-[130px] -top-[70px]
+            group-hover:-end-[90px]
+            group-hover:-top-[60px]
+            duration-500"
           src="svg/arrow3.svg"
           alt="brand logo"
         />
         <img
-          className="absolute -end-[110px] -top-[10px]"
+          className="absolute -end-[130px] -top-[10px]
+            group-hover:-end-[100px]
+            group-hover:-top-[5px]
+            duration-500"
           src="svg/arrow4.svg"
           alt="brand logo"
         />

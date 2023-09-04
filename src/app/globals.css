@@ -25,6 +25,38 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: 'Indie Flower';
+  src: url(/fonts/IndieFlower-Regular.ttf);
+}
+
 .home-carousel > .swiper-wrapper {
   transition-timing-function: linear;
+}
+
+.services-list {
+  counter-reset: services-counter;
+}
+
+.services-list li {
+  counter-increment: services-counter;
+  position: relative;
+}
+
+.services-list li::before {
+  content: counter(services-counter);
+  position: absolute;
+  top: -0.5rem;
+  padding: 3px;
+  padding-right: 5px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  color: var(--clr-brand-primary-400);
+  display: block;
+  width: 35px;
+  height: 40px;
+  background-image: url( '/svg/services_list_marker.svg' );
+  background-repeat: no-repeat;
 }
