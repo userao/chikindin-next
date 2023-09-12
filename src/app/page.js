@@ -6,7 +6,7 @@ import getImages from "@/utils/getImages";
 
 
 export default async function Home() {
-  const req = await fetch(routes.getProjects());
+  const req = await fetch(routes.getProjects(), { cache: "no-store" });
   const projects = await req.json();
 
   const images = await Promise.all(projects.map(async (project) => {

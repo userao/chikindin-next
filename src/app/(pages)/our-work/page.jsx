@@ -5,7 +5,7 @@ import routes from "@/utils/routes";
 import getImages from "@/utils/getImages";
 
 export default async function OurWork() {
-  const req = await fetch(routes.getProjects());
+  const req = await fetch(routes.getProjects(), { cache: "no-store" });
   const projects = await req.json();
 
   const projectsNormalized = await Promise.all(

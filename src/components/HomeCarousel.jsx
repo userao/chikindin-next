@@ -6,8 +6,10 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-export default function HomeCarousel({ images }) {
+export default function HomeCarousel({ images = null }) {
   const carouselSpeed = 20000;
+
+  if (!images) return null;
 
   return (
     <>
