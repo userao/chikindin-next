@@ -28,3 +28,5 @@ export default async function OurWork() {
     </section>
   );
 }
+
+export const dynamic = 'force-dynamic';
