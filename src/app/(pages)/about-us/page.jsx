@@ -1,9 +1,10 @@
 import TextSpinner from "@/components/TextSpinner";
 import React from "react";
+import Image from "next/image";
+import oleg from "public/images/oleg.png";
+import regina from "public/images/regina.png";
 
-// todo
-// - стрелочки на кнопочку
-const AboutUs = () => {
+export default async function AboutUs() {
   return (
     <section className="p-[8rem]">
       <TextSpinner
@@ -22,10 +23,10 @@ const AboutUs = () => {
       </p>
       <div className="flex gap-4 mb-8">
         <div className="">
-          <img src="images/oleg.png" alt="Олег" />
+          <Image src={oleg} alt="Олег" placeholder='blur' width="auto" />
         </div>
         <div className="">
-          <img src="images/regina.png" alt="Регина" />
+          <Image src={regina} alt="Регина" placeholder='blur' width="auto" />
         </div>
       </div>
       <p className="mb-[5.625rem] font-bold text-xl w-2/3">
@@ -81,6 +82,4 @@ const AboutUs = () => {
       </div>
     </section>
   );
-};
-
-export default AboutUs;
+}

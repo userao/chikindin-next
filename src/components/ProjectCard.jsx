@@ -29,9 +29,12 @@ export default function ProjectCard({ card }) {
     <div>
       <div className="h-screen relative mb-4">
         <Image
-          src={`/${card.imageSrc}`}
+          src={`/${card.image.img.src}`}
           alt={card.name}
+          placeholder="blur"
+          blurDataURL={card.image.base64}
           fill={true}
+          sizes="100%"
           className="object-cover"
         />
         <div className="h-full w-full bg-card-hover absolute start-0 top-0 text-white flex flex-col justify-center ps-[10%]">

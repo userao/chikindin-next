@@ -1,5 +1,7 @@
 import React from "react";
 import Link from 'next/link'
+import Image from "next/image";
+import brandLogo from 'public/svg/brand_logo.svg';
 
 const Navbar = () => {
   return (
@@ -7,7 +9,7 @@ const Navbar = () => {
       <div className="relative flex items-center justify-center h-header">
         <div className="absolute start-8">
           <Link href="/">
-            <img className="" src="svg/brand_logo.svg" alt="brand logo" />
+            <Image className="" src={brandLogo} alt="brand logo" />
           </Link>
         </div>
         <ul className="flex items-center gap-navbar-links uppercase">

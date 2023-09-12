@@ -1,8 +1,9 @@
 import ProjectCard from "@/components/ProjectCard";
 import ProjectImages from "@/components/ProjectImages";
 import getAllProjectImagesPaths from "@/utils/getAllProjectImagesPaths";
-import getRandomProjectImagePath from "@/utils/getRandomProjectImagePath";
 import routes from "@/utils/routes";
+import paths from "@/utils/paths";
+import getImages from "@/utils/getImages";
 
 export default async function Page({ params }) {
   const { id } = params;
@@ -11,12 +12,16 @@ export default async function Page({ params }) {
 
   const allImagesPaths = await getAllProjectImagesPaths(project.id);
 
-  const card = { ...project, imageSrc: allImagesPaths[0] };
+  const pathToImages = paths.getProjectImagesPathById(project.id);
+  const pattern = `${pathToImages}/*/*.jpg`;
+  const images = await getImages(pattern);
+
+  const card = { ...project, image: images[0] };
 
   return (
     <section>
       <ProjectCard card={card} />
-      <ProjectImages imagesPaths={allImagesPaths} />
+      <ProjectImages images={images} />
     </section>
   );
 }

@@ -1,4 +1,7 @@
 import React from "react";
+import Image from "next/image";
+import tLogo from "public/svg/t_logo.svg";
+import instaLogo from "public/svg/insta_logo.svg";
 
 // todo:
 // ссылки на соцсети
@@ -12,10 +15,10 @@ const Footer = () => {
         </div>
         <div className="flex gap-6">
           <a href="#">
-            <img src="svg/t_logo.svg" alt="instagram link" />
+            <Image src={tLogo} alt="instagram link" />
           </a>
           <a href="#">
-            <img src="svg/insta_logo.svg" alt="telegram link" />
+            <Image src={instaLogo} alt="telegram link" />
           </a>
         </div>
       </div>

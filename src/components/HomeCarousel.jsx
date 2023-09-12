@@ -6,7 +6,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 
-export default function HomeCarousel({ cards }) {
+export default function HomeCarousel({ images }) {
   const carouselSpeed = 20000;
 
   return (
@@ -25,16 +25,18 @@ export default function HomeCarousel({ cards }) {
         loop={true}
         speed={carouselSpeed}
       >
-        {cards.map((card) => {
+        {images.map(({ img, base64}, i) => {
           return (
             <SwiperSlide
-              key={card.projectName}
+              key={img.src}
               className="overflow-hidden"
             >
               <Image
-                src={`/${card.imagePath}`}
-                alt={card.projectName}
+                src={`/${img.src}`}
+                alt={`Project image #${i + 1}`}
                 fill={true}
+                placeholder='blur'
+                blurDataURL={base64}
                 className="object-cover"
               />
             </SwiperSlide>

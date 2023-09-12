@@ -1,0 +1,40 @@
+[
+  {
+    "id": 0,
+    "type": "input",
+    "title": "Ваше имя",
+    "additiveInfo": "Дополнительная информация"
+  },
+  {
+    "id": 1,
+    "type": "input",
+    "title": "Ваш телефон",
+    "additiveInfo": null
+  },
+  {
+    "id": 2,
+    "type": "input",
+    "title": "Ваш e-mail",
+    "additiveInfo": null
+  },
+  {
+    "id": 3,
+    "type": "input",
+    "title": "Ваша квартира расположена по адресу",
+    "additiveInfo": null
+  },
+  {
+    "id": 4,
+    "type": "radio",
+    "title": "Согласование перепланировки",
+    "variants": ["С согласованием", "Без согласования"],
+    "additiveInfo": null
+  },
+  {
+    "id": 5,
+    "type": "checkbox",
+    "title": "Мебель для гостиной",
+    "variants": ["Шкаф", "Диван", "Барная стойка", "Шест для стриптиза", "Стол для покера"],
+    "additiveInfo": null
+  }
+]
