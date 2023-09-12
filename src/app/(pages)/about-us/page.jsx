@@ -3,6 +3,10 @@ import React from "react";
 import Image from "next/image";
 import oleg from "public/images/oleg.png";
 import regina from "public/images/regina.png";
+import arrow1 from "public/svg/arrow1.svg";
+import arrow2 from "public/svg/arrow2.svg";
+import arrow3 from "public/svg/arrow3.svg";
+import arrow4 from "public/svg/arrow4.svg";
 
 export default async function AboutUs() {
   return (
@@ -40,21 +44,21 @@ export default async function AboutUs() {
         беззаботным для вас.
       </p>
       <div className="relative w-full md:w-3/4 lg:w-1/2 group">
-        <img
+        <Image
           className="absolute -start-[110px] -top-[70px]
             group-hover:-start-[90px]
             group-hover:-top-[60px]
             duration-500"
-          src="svg/arrow1.svg"
-          alt="brand logo"
+          src={arrow1}
+          alt="arrow #1"
         />
-        <img
+        <Image
           className="absolute -start-[90px] -top-[120px]
             group-hover:-start-[80px]
             group-hover:-top-[95px]
             duration-500"
-          src="svg/arrow2.svg"
-          alt="brand logo"
+          src={arrow2}
+          alt="arrow #2"
         />
         <button
           className="border-[3px] border-brand-primary-400
@@ -63,21 +67,21 @@ export default async function AboutUs() {
         >
           оставьте заявку на просчет стоймости проекта
         </button>
-        <img
+        <Image
           className="absolute -end-[130px] -top-[70px]
             group-hover:-end-[90px]
             group-hover:-top-[60px]
             duration-500"
-          src="svg/arrow3.svg"
-          alt="brand logo"
+          src={arrow3}
+          alt="arrow #3"
         />
-        <img
+        <Image
           className="absolute -end-[130px] -top-[10px]
             group-hover:-end-[100px]
             group-hover:-top-[5px]
             duration-500"
-          src="svg/arrow4.svg"
-          alt="brand logo"
+          src={arrow4}
+          alt="arrow #4"
         />
       </div>
     </section>

@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { answersSelectors } from "../features/answers/answersSlice";
 import { Field } from "formik";
 
 const AnswerVariantsTypeQuestion = ({ question }) => {

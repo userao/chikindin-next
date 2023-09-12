@@ -2,7 +2,7 @@ import path from "path";
 import paths from "./paths";
 import getFolderContent from "./getFolderContent";
 
-export default async function(projectId) {
+export default async function getRandomProjectImagePath (projectId) {
     const projectImagesFolderPath = paths.getProjectImagesPathById(projectId);
 
     const subfolders = await getFolderContent(projectImagesFolderPath);

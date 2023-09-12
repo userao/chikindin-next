@@ -15,6 +15,7 @@
     "classnames": "^2.3.2",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
+    "formik": "^2.4.4",
     "glob": "^10.3.4",
     "next": "13.4.16",
     "plaiceholder": "^3.0.0",
