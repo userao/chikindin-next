@@ -1,4 +1,4 @@
-const basename = 'http://localhost:3000/api/';
+const basename = 'http://127.0.0.1:3000/api/';
 
 const routes = {
   getProjects: () => `${basename}work-projects`,
