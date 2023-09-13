@@ -7,7 +7,7 @@ import getImages from "@/utils/getImages";
 
 export default async function Page({ params }) {
   const { id } = params;
-  const req = await fetch(routes.getProjectById(id));
+  const req = await fetch(`http://127.0.0.1:3000/api/work-projects?id=${id}`);
   const project = await req.json();
 
   const allImagesPaths = await getAllProjectImagesPaths(project.id);
@@ -25,3 +25,5 @@ export default async function Page({ params }) {
     </section>
   );
 }
+
+export const dynamic = 'force-dynamic';

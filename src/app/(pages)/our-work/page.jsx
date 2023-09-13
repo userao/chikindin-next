@@ -5,7 +5,7 @@ import routes from "@/utils/routes";
 import getImages from "@/utils/getImages";
 
 export default async function OurWork() {
-  const req = await fetch('http://127.0.0.1:3000', { cache: "no-store" });
+  const req = await fetch('http://127.0.0.1:3000/api/work-projects', { cache: "no-store" });
   const projects = await req.json();
 
   const projectsNormalized = await Promise.all(
