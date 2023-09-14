@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import Link from "next/link";
 import Image from "next/image";
+import imageLoader from "@/utils/imageLoader";
 
 export default function ProjectsCarousel({ projects }) {
 
@@ -20,6 +21,7 @@ export default function ProjectsCarousel({ projects }) {
             >
               <Link href={`our-work/${project.id}`}>
                 <Image
+                  loader={imageLoader}
                   src={`/${project.img.src}`}
                   alt={project.name}
                   fill={true}
