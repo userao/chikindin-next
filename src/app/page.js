@@ -17,7 +17,7 @@ export default async function Home() {
   return (
     <section className="h-screen-no-scroll">
       <TextSpinner text={'chikindin design'} radius={150} color={'white'} />
-      <HomeCarousel images={images}/>
+      <HomeCarousel images={images} />
     </section>
   );
 }

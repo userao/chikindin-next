@@ -1,6 +1,6 @@
 "use client";
 
-import Image from 'next/image';
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -15,7 +15,7 @@ export default function HomeCarousel({ images = null }) {
     <>
       <Swiper
         className="h-full home-carousel"
-        slidesPerView={'auto'}
+        slidesPerView={"auto"}
         spaceBetween={5}
         noSwiping={true}
         allowTouchMove={false}
@@ -27,17 +27,16 @@ export default function HomeCarousel({ images = null }) {
         loop={true}
         speed={carouselSpeed}
       >
-        {images.map(({ img, base64}, i) => {
+        {images.map(({ img, base64 }, i) => {
+          const imagePath = '/' + img.src.split('\\').join('/');
+
           return (
-            <SwiperSlide
-              key={img.src}
-              className="overflow-hidden"
-            >
+            <SwiperSlide key={img.src} className="overflow-hidden">
               <Image
-                src={`/${img.src}`}
+                src={imagePath}
                 alt={`Project image #${i + 1}`}
                 fill={true}
-                placeholder='blur'
+                placeholder="blur"
                 blurDataURL={base64}
                 className="object-cover"
               />
