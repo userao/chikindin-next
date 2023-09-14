@@ -11,6 +11,7 @@ export default async function OurWork() {
       const pathToImages = paths.getProjectImagesPathById(project.id);
       const pattern = `${pathToImages}/1/1.jpg`;
       const [image] = await getImages(pattern);
+      image.img.src = '/' + image.img.src.split('\\').join('/');
       return { ...project, ...image };
     })
   );

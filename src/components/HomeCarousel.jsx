@@ -5,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-import imageLoader from "@/utils/imageLoader";
 
 export default function HomeCarousel({ images = null }) {
   const carouselSpeed = 20000;
@@ -29,13 +28,11 @@ export default function HomeCarousel({ images = null }) {
         speed={carouselSpeed}
       >
         {images.map(({ img, base64 }, i) => {
-          const imagePath = "/" + img.src.split("\\").join("/");
 
           return (
             <SwiperSlide key={img.src} className="overflow-hidden">
               <Image
-                loader={imageLoader}
-                src={imagePath}
+                src={img.src}
                 alt={`Project image #${i + 1}`}
                 fill={true}
                 placeholder="blur"

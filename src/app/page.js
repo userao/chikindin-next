@@ -11,6 +11,8 @@ export default async function Home() {
     const randomProjectImagePath = await getRandomProjectImagePath(project.id);
     const [image] = await getImages(randomProjectImagePath);
 
+    image.img.src = '/' + image.img.src.split('\\').join('/');
+
     return image;
   }));
 
