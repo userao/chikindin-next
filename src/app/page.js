@@ -3,12 +3,10 @@ import TextSpinner from "@/components/TextSpinner";
 import routes from "@/utils/routes";
 import getRandomProjectImagePath from "@/utils/getRandomProjectImagePath";
 import getImages from "@/utils/getImages";
+import projects from '@/projects.json';
 
 
 export default async function Home() {
-  const req = await fetch(routes.getProjects(), { cache: "no-store" });
-  const projects = await req.json();
-
   const images = await Promise.all(projects.map(async (project) => {
     const randomProjectImagePath = await getRandomProjectImagePath(project.id);
     const [image] = await getImages(randomProjectImagePath);
@@ -23,3 +21,4 @@ export default async function Home() {
     </section>
   );
 }
+

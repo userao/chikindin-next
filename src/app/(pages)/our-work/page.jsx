@@ -3,11 +3,9 @@ import TextSpinner from "@/components/TextSpinner";
 import paths from "@/utils/paths";
 import routes from "@/utils/routes";
 import getImages from "@/utils/getImages";
+import projects from "@/projects.json";
 
 export default async function OurWork() {
-  const req = await fetch(routes.getProjects(), { cache: "no-store" });
-  const projects = await req.json();
-
   const projectsNormalized = await Promise.all(
     projects.map(async (project) => {
       const pathToImages = paths.getProjectImagesPathById(project.id);
@@ -28,5 +26,3 @@ export default async function OurWork() {
     </section>
   );
 }
-
-export const dynamic = 'force-dynamic';

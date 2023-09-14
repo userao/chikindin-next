@@ -3,11 +3,12 @@ import ProjectImages from "@/components/ProjectImages";
 import routes from "@/utils/routes";
 import paths from "@/utils/paths";
 import getImages from "@/utils/getImages";
+import projects from '@/projects.json';
 
 export default async function Page({ params }) {
   const { id } = params;
-  const req = await fetch(routes.getProjectById(id), { cache: "no-store" });
-  const project = await req.json();
+
+  const project = projects.find(p => p.id === Number(id));
 
   const pathToImages = paths.getProjectImagesPathById(project.id);
   const pattern = `${pathToImages}/*/*.jpg`;
@@ -23,4 +24,3 @@ export default async function Page({ params }) {
   );
 }
 
-export const dynamic = 'force-dynamic';
