@@ -29,7 +29,7 @@ export default function ProjectCard({ card }) {
     <div>
       <div className="h-screen relative mb-4">
         <Image
-          src={`/${card.image.img.src}`}
+          src={card.image.src}
           alt={card.name}
           placeholder="blur"
           blurDataURL={card.image.base64}

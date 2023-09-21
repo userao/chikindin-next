@@ -1,8 +1,7 @@
-const basename = "http://127.0.0.1:3000/api/";
+const yaDiskAPIRoute = 'https://cloud-api.yandex.net/v1/disk/resources'
 
 const routes = {
-  getProjects: () => `${basename}work-projects`,
-  getProjectById: (id) => `${basename}work-projects?id=${id}`,
+  getAPIRoute: () => yaDiskAPIRoute,
 };
 
 export default routes;

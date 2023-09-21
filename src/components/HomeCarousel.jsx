@@ -27,12 +27,12 @@ export default function HomeCarousel({ images = null }) {
         loop={true}
         speed={carouselSpeed}
       >
-        {images.map(({ img, base64 }, i) => {
+        {images.map(({ src, base64 }, i) => {
 
           return (
-            <SwiperSlide key={img.src} className="overflow-hidden">
+            <SwiperSlide key={src} className="overflow-hidden">
               <Image
-                src={img.src}
+                src={src}
                 alt={`Project image #${i + 1}`}
                 fill={true}
                 placeholder="blur"

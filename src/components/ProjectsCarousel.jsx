@@ -20,7 +20,7 @@ export default function ProjectsCarousel({ projects }) {
             >
               <Link href={`our-work/${project.id}`}>
                 <Image
-                  src={project.img.src}
+                  src={project.src}
                   alt={project.name}
                   fill={true}
                   sizes="100%"

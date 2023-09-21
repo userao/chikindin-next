@@ -1,25 +1,29 @@
 import ProjectCard from "@/components/ProjectCard";
 import ProjectImages from "@/components/ProjectImages";
-import routes from "@/utils/routes";
-import paths from "@/utils/paths";
-import getImages from "@/utils/getImages";
 import projects from '@/projects.json';
+import getYDImages from "@/utils/getYDImages";
+import getProjectImages from "@/utils/getProjectImages";
+import getImage from "@/utils/getImage";
 
 export default async function Page({ params }) {
   const { id } = params;
 
   const project = projects.find(p => p.id === Number(id));
 
-  const pathToImages = paths.getProjectImagesPathById(project.id);
-  const pattern = `${pathToImages}/*/*.jpg`;
-  const images = await getImages(pattern);
+  const allYdImages = await getYDImages();
+  const projectYdImages = getProjectImages(project.id, allYdImages);
 
-  const card = { ...project, image: images[0] };
+  const cardImage = await getImage(projectYdImages[0].file);
+  const card = { ...project, image: cardImage };
+
+  const projectImages = await Promise.all(projectYdImages.map(async (ydi) => {
+    return getImage(ydi.file);
+  }))
 
   return (
     <section>
       <ProjectCard card={card} />
-      <ProjectImages images={images} />
+      <ProjectImages images={projectImages} />
     </section>
   );
 }
