@@ -6,17 +6,17 @@ import "swiper/css/autoplay";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function ProjectsCarousel({ projects }) {
+export default function ProjectsCarousel({ carouselData }) {
 
   return (
     <>
       <Swiper className="h-full" slidesPerView={4} spaceBetween={5}>
-        {projects.map((project) => {
+        {carouselData.map((project) => {
 
           return (
             <SwiperSlide
               key={project.id}
-              className="overflow-hidden relative"
+              className="overflow-hidden relative flex-none"
             >
               <Link href={`our-work/${project.id}`}>
                 <Image
@@ -24,7 +24,7 @@ export default function ProjectsCarousel({ projects }) {
                   alt={project.name}
                   fill={true}
                   sizes="100%"
-                  placeholder="blur"
+                  placeholder={project.base64}
                   blurDataURL={project.base64}
                   className="object-cover"
                 />

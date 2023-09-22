@@ -1,9 +1,10 @@
 import Image from "next/image";
+import getBase64PlaceholderUrl from "@/utils/getBase64PlaceholderUrl";
 
 export default function ProjectImages({ images }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
-      {images.map(({ src, base64 }, i) => {
+      {images.map(async ({ src, base64 }, i) => {
         return (
           <div key={src} className="relative h-[20rem]">
             <Image
@@ -12,8 +13,7 @@ export default function ProjectImages({ images }) {
               fill={true}
               sizes="100%"
               quality={20}
-              blurDataURL={base64}
-              placeholder="blur"
+              placeholder={base64}
               className="object-cover"
             />
           </div>

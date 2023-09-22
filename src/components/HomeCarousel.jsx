@@ -35,8 +35,7 @@ export default function HomeCarousel({ images = null }) {
                 src={src}
                 alt={`Project image #${i + 1}`}
                 fill={true}
-                placeholder="blur"
-                blurDataURL={base64}
+                placeholder={base64}
                 className="object-cover"
               />
             </SwiperSlide>

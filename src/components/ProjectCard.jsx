@@ -36,6 +36,7 @@ export default function ProjectCard({ card }) {
           fill={true}
           sizes="100%"
           className="object-cover"
+          priority
         />
         <div className="h-full w-full bg-card-hover absolute start-0 top-0 text-white flex flex-col justify-center ps-[10%]">
           <h2 className="text-[3rem] uppercase">{card.name}</h2>

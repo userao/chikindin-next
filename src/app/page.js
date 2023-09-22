@@ -1,10 +1,9 @@
 import HomeCarousel from "@/components/HomeCarousel";
 import TextSpinner from "@/components/TextSpinner";
-import getImage from "@/utils/getImage";
-import projects from '@/projects.json';
+import projects from "@/projects.json";
 import getProjectImages from "@/utils/getProjectImages";
-import getYDImages from '@/utils/getYDImages'
-
+import getYDImages from "@/utils/getYDImages";
+import getBase64PlaceholderUrl from "@/utils/getBase64PlaceholderUrl";
 
 export default async function Home() {
   const allYdImages = await getYDImages();
@@ -15,18 +14,22 @@ export default async function Home() {
 
     return projectYdImages[randomIndex];
   });
-  
-  const carouselImages = await Promise.all(randomYdImages.map(async (ydi) => {
-    const { file } = ydi;
 
-    return getImage(file)
-  }))
+  const plaiceholdersPromises = randomYdImages.map((image) =>
+    getBase64PlaceholderUrl(image.file)
+  );
+
+  const plaiceholders = await Promise.all(plaiceholdersPromises);
+
+  const carouselImages = randomYdImages.map((image, i) => ({
+    src: image.file,
+    base64: plaiceholders[i],
+  }));
 
   return (
     <section className="h-screen-no-scroll">
-      <TextSpinner text={'chikindin design'} radius={150} color={'white'} />
+      <TextSpinner text={"chikindin design"} radius={150} color={"white"} />
       <HomeCarousel images={carouselImages} />
     </section>
   );
 }
-
