@@ -4,6 +4,7 @@ import ProjectCard from "./ProjectCard";
 import getYDImages from "@/utils/getYDImages";
 import getProjectImages from "@/utils/getProjectImages";
 import getBase64PlaceholderUrl from "@/utils/getBase64PlaceholderUrl";
+import routes from "@/utils/routes";
 
 export default async function Project({ project }) {
   const allYdImages = await getYDImages();
@@ -22,7 +23,7 @@ export default async function Project({ project }) {
 
   return (
     <>
-      <ProjectCard card={{...project, image: imagesWithBlur[0]}} />
+      <ProjectCard card={{ ...project, image: imagesWithBlur[0] }} />
       <ProjectImages images={imagesWithBlur} />
     </>
   );
