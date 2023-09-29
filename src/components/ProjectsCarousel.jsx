@@ -18,7 +18,7 @@ export default function ProjectsCarousel({ carouselData }) {
               key={project.id}
               className="overflow-hidden relative flex-none"
             >
-              <Link href={`our-work/${project.id}`}>
+              <Link href={`our-work/${project.id}`} className="block w-full h-full relative">
                 <Image
                   src={project.src}
                   alt={project.name}

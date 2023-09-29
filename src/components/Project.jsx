@@ -21,6 +21,8 @@ export default async function Project({ project }) {
     base64: plaiceholders[i],
   }));
 
+  
+
   return (
     <>
       <ProjectCard card={{ ...project, image: imagesWithBlur[0] }} />

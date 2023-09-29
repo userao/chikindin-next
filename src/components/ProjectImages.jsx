@@ -7,9 +7,13 @@ import { useState } from "react";
 export default function ProjectImages({ images }) {
   const [modalImage, setModalImage] = useState(null);
 
+  function handleClose(e) {
+    setModalImage(null);
+  }
+
   return (
     <>
-      <ImageModal image={modalImage} />
+      <ImageModal image={modalImage} handleClose={handleClose} />
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {images.map(({ src, base64 }, i) => {
           return (
