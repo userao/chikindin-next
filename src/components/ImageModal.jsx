@@ -11,7 +11,7 @@ export default function ImageModal({ image, handleClose }) {
       onClick={handleClose}
       className="fixed inset-0 w-screen h-screen flex items-center justify-center z-10 bg-card-hover overflow-y-hidden"
     >
-      <button class="absolute top-[1rem] end-[3rem] z-30 text-white text-[5rem] leading-none">&times;</button>
+      <button className="absolute top-[1rem] end-[3rem] z-30 text-white text-[5rem] leading-none">&times;</button>
       <div
         className="relative flex z-20 w-full h-full max-w-[90vw] max-h-[90vh]"
       >

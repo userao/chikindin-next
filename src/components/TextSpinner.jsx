@@ -1,9 +1,17 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import cn from "classnames";
 
 export default function TextSpinner({ text, radius, color }) {
-  const charStepAngle = 7;
+  const spinner = useRef(null);
+
+  const charStepAngle = 10;
   const textAngleSize = text.length * charStepAngle;
-  const numberOfTextRepetitions = Math.floor(360 / textAngleSize);
+  let numberOfTextRepetitions = Math.floor(360 / textAngleSize) - 1;
+  if (numberOfTextRepetitions === 1) {
+    numberOfTextRepetitions += 1;
+  }
   const spaceBetweenTextBlocksAngle =
     (360 - textAngleSize * numberOfTextRepetitions) / numberOfTextRepetitions;
 
@@ -21,6 +29,7 @@ export default function TextSpinner({ text, radius, color }) {
       const charClasses = cn("absolute", "origin-bottom", "w-5");
       const element = (
         <p
+          key={ch + i + j}
           className={charClasses}
           style={{
             height: radius,
@@ -34,25 +43,23 @@ export default function TextSpinner({ text, radius, color }) {
     });
   }
 
-  const containerClasses = cn(
-    "fixed",
-    "top-5",
-    "right-[8rem]",
-    "text-center",
-    "text-sm",
-    "z-50",
-    'hidden',
-    'md:block',
-  );
-
   return (
     <div
-      className={containerClasses}
-      style={{
-        color: `var(--clr-${color})`,
-      }}
+      className="z-50 pointer-events-none fixed flex justify-center items-center top-5 right-3 animate-[spin_40s_linear_infinite]"
+      style={{ width: radius * 2, aspectRatio: "1/1" }}
     >
-      {charElements}
+      <div
+        className='text-center text-sm'
+        style={{
+          color: `var(--clr-${color})`,
+          width: radius * 2,
+          aspectRatio: "1/1",
+          transform: "translateX(47%)",
+        }}
+        ref={spinner}
+      >
+        {charElements}
+      </div>
     </div>
   );
 }
