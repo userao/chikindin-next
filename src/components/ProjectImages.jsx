@@ -11,7 +11,7 @@ export default function ProjectImages({ images }) {
 
   useEffect(() => {
     renderGalleryImages();
-  }, [activePage]);
+  }, [activePage, renderGalleryImages]);
 
   const imagesPerPage = 12;
   const numberOfPages = Math.ceil(images.length / imagesPerPage);

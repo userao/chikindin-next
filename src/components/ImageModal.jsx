@@ -2,9 +2,9 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function ImageModal({ image, handleClose }) {
-  if (image === null) return null;
-
   const [imageSize, setImageSize] = useState(null);
+
+  if (image === null) return null;
 
   return (
     <div
