@@ -52,7 +52,7 @@ export default function ProjectCard({ card }) {
           }}
         />
       </div>
-      <div className="h-[500px]">Планировка сюда</div>
+      {/* <div className="h-[500px]">Планировка сюда</div> */}
     </div>
   );
 }

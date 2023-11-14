@@ -7,6 +7,7 @@ import arrow1 from "public/svg/arrow1.svg";
 import arrow2 from "public/svg/arrow2.svg";
 import arrow3 from "public/svg/arrow3.svg";
 import arrow4 from "public/svg/arrow4.svg";
+import Link from "next/link";
 
 export default async function AboutUs() {
   return (
@@ -27,10 +28,10 @@ export default async function AboutUs() {
       </p>
       <div className="flex gap-4 mb-8">
         <div className="">
-          <Image src={oleg} alt="Олег" placeholder='blur' width="auto" />
+          <Image src={oleg} alt="Олег" placeholder="blur" width="auto" />
         </div>
         <div className="">
-          <Image src={regina} alt="Регина" placeholder='blur' width="auto" />
+          <Image src={regina} alt="Регина" placeholder="blur" width="auto" />
         </div>
       </div>
       <p className="mb-[5.625rem] font-bold text-xl w-2/3">
@@ -60,13 +61,15 @@ export default async function AboutUs() {
           src={arrow2}
           alt="arrow #2"
         />
-        <button
-          className="border-[3px] border-brand-primary-400
+        <Link href="/form">
+          <button
+            className="border-[3px] border-brand-primary-400
           rounded-xl p-4 text-neutral-400 w-full
           group-hover:bg-brand-primary-400 group-hover:text-white duration-500"
-        >
-          оставьте заявку на просчет стоймости проекта
-        </button>
+          >
+            оставьте заявку на просчет стоймости проекта
+          </button>
+        </Link>
         <Image
           className="absolute -end-[130px] -top-[70px]
             group-hover:-end-[90px]

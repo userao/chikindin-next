@@ -1,5 +1,6 @@
-import TextSpinner from "@/components/TextSpinner";
 import React from "react";
+import Link from "next/link";
+import TextSpinner from "@/components/TextSpinner";
 
 const Contacts = () => {
   return (
@@ -14,9 +15,11 @@ const Contacts = () => {
           <p className="my-2">Почта</p>
           <p className="text-3xl text-brand-primary-400">chikindin@form.me</p>
         </div>
-        <button className="px-3 py-2 lowercase rounded-lg mt-8 text-neutral-400 border-4 border-brand-primary-400 hover:bg-brand-primary-400 hover:text-white duration-500">
-          Оставьте заявку на просчет стоимости проекта
-        </button>
+        <Link href="/form">
+          <button className="px-3 py-2 lowercase rounded-lg mt-8 text-neutral-400 border-4 border-brand-primary-400 hover:bg-brand-primary-400 hover:text-white duration-500">
+            Оставьте заявку на просчет стоимости проекта
+          </button>
+        </Link>
       </div>
     </section>
   );

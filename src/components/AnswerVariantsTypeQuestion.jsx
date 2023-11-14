@@ -3,26 +3,22 @@ import { useSelector } from "react-redux";
 import { Field } from "formik";
 
 const AnswerVariantsTypeQuestion = ({ question }) => {
-  const questionId = question.id;
-  const answers = useSelector(answersSelectors.selectAll);
-  const questionAnswers = answers.filter((answer) => answer.questionId === questionId);
+  const { variants } = question;
 
   return (
-    <div className="question">
-      <p className="question__title">{question.title}</p>
-      {question.additiveInfo && <p className="question__additive-info">{question.additiveInfo}</p>}
-      {questionAnswers.map((answer) => {
-        const { id: answerId, title: answerTitle } = answer;
+    <div className="py-4">
+      <p className="pb-1">{question.title}</p>
+      {variants.map((variant) => {
 
         return (
-          <div className="question__input-container" key={answerId}>
+          <div className="py-1" key={variant}>
             <Field
               type={question.type}
-              id={`${questionId}-${answerId}`}
+              id={variant}
               name={question.title}
-              value={answerTitle}
+              value={variant}
             />
-            <label htmlFor={`${questionId}-${answerId}`}>{answerTitle}</label>
+            <label htmlFor={variant} className="ps-1">{variant}</label>
           </div>
         );
       })}
