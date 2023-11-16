@@ -10,8 +10,14 @@ export default function ProjectImages({ images }) {
   const [shownImages, setShownImages] = useState(null);
 
   useEffect(() => {
+    function renderGalleryImages() {
+      const startImageIndex = activePage * imagesPerPage;
+      const currentImages = [...images].splice(startImageIndex, imagesPerPage);
+      setShownImages(currentImages);
+    }
+
     renderGalleryImages();
-  }, [activePage, renderGalleryImages]);
+  }, [activePage, images]);
 
   const imagesPerPage = 12;
   const numberOfPages = Math.ceil(images.length / imagesPerPage);
@@ -35,12 +41,6 @@ export default function ProjectImages({ images }) {
 
   function handleClose(e) {
     setModalImage(null);
-  }
-
-  function renderGalleryImages() {
-    const startImageIndex = activePage * imagesPerPage;
-    const currentImages = [...images].splice(startImageIndex, imagesPerPage);
-    setShownImages(currentImages);
   }
 
   return (

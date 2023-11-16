@@ -1,6 +1,8 @@
 import QuestionList from "@/components/QuestionsList";
 import TextSpinner from "@/components/TextSpinner";
 import questions from '@/questions.json';
+import ReduxProvider from "@/components/ReduxProvider";
+import PageLoadedCheck from "@/components/PageLoadedCheck";
 
 export default async function Form() {
   return (
@@ -14,6 +16,9 @@ export default async function Form() {
         <h1 className="uppercase text-3xl text-brand-primary-400 py-5">анкета</h1>
         <QuestionList questions={questions} />
       </div>
+      <ReduxProvider>
+        <PageLoadedCheck />
+      </ReduxProvider>
     </section>
   );
 }

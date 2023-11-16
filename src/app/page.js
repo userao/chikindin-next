@@ -4,6 +4,8 @@ import projects from "@/projects.json";
 import getProjectImages from "@/utils/getProjectImages";
 import getYDImages from "@/utils/getYDImages";
 import getBase64PlaceholderUrl from "@/utils/getBase64PlaceholderUrl";
+import ReduxProvider from "@/components/ReduxProvider";
+import PageLoadedCheck from "@/components/PageLoadedCheck";
 
 export default async function Home() {
   const allYdImages = await getYDImages();
@@ -30,6 +32,9 @@ export default async function Home() {
     <section className="h-screen-no-scroll">
       <TextSpinner text={"chikindin design"} radius={150} color={"white"} />
       <HomeCarousel images={carouselImages} />
+      <ReduxProvider>
+        <PageLoadedCheck />
+      </ReduxProvider>
     </section>
   );
 }

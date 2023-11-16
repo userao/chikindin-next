@@ -1,4 +1,6 @@
 import TextSpinner from "@/components/TextSpinner";
+import ReduxProvider from "@/components/ReduxProvider";
+import PageLoadedCheck from "@/components/PageLoadedCheck";
 
 export default function Services() {
   return (
@@ -55,6 +57,9 @@ export default function Services() {
           </li>
         </ol>
       </div>
+      <ReduxProvider>
+        <PageLoadedCheck />
+      </ReduxProvider>
     </section>
   );
 }

@@ -1,16 +1,24 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Mousewheel } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
 import Link from "next/link";
 import Image from "next/image";
+import { setLoadingState } from "@/store/loadingStateSlice";
+import { useDispatch } from "react-redux";
 
 export default function ProjectsCarousel({ carouselData }) {
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    dispatch(setLoadingState('loading'));
+  }
 
   return (
     <>
-      <Swiper className="h-full" slidesPerView={4} spaceBetween={5}>
+      <Swiper className="h-full" slidesPerView={4} spaceBetween={5} mousewheel={true} modules={[Mousewheel]}>
         {carouselData.map((project) => {
 
           return (
@@ -18,7 +26,7 @@ export default function ProjectsCarousel({ carouselData }) {
               key={project.id}
               className="overflow-hidden relative flex-none"
             >
-              <Link href={`our-work/${project.id}`} className="block w-full h-full relative">
+              <Link href={`our-work/${project.id}`} className="block w-full h-full relative" onClick={handleClick}>
                 <Image
                   src={project.src}
                   alt={project.name}

@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Field, useFormikContext } from "formik";
 
 const InputTypeQuestion = ({ question }) => {
   const { id, title, required } = question;
-  const { setFieldValue, touched, errors } = useFormikContext();
+  const { setFieldValue, touched, errors, isValid, submitCount } = useFormikContext();
   const [inputValue, setInputValue] = useState("");
-  const [errorMessage, setErrorMessage] = useState(errors[title] ?? "");
 
   function handleChange(e) {
     setInputValue(e.target.value);
@@ -23,9 +22,6 @@ const InputTypeQuestion = ({ question }) => {
 
     if (!value) {
       error = fieldRequiredMsg;
-      setErrorMessage(fieldRequiredMsg);
-    } else {
-      setErrorMessage("");
     }
 
     return error;
@@ -48,7 +44,9 @@ const InputTypeQuestion = ({ question }) => {
           {title}
         </label>
       </div>
-      <div className="absolute text-sm text-red-500">{errorMessage}</div>
+      {((touched[title] && errors[title]) || (!isValid && submitCount > 0)) && (
+        <div className="absolute text-sm text-red-500">{errors[title]}</div>
+      )}
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import TextSpinner from "@/components/TextSpinner";
+import ReduxProvider from "@/components/ReduxProvider";
+import PageLoadedCheck from "@/components/PageLoadedCheck";
 
 const Contacts = () => {
   return (
@@ -21,6 +23,9 @@ const Contacts = () => {
           </button>
         </Link>
       </div>
+      <ReduxProvider>
+        <PageLoadedCheck />
+      </ReduxProvider>
     </section>
   );
 };

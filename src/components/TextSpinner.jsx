@@ -34,6 +34,7 @@ export default function TextSpinner({ text, radius, color }) {
           style={{
             height: radius,
             transform: `rotate(${j * charStepAngle + startAngle}deg)`,
+            textShadow: '0px 10px 10px',
           }}
         >
           {ch}

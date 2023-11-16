@@ -8,6 +8,8 @@ import arrow2 from "public/svg/arrow2.svg";
 import arrow3 from "public/svg/arrow3.svg";
 import arrow4 from "public/svg/arrow4.svg";
 import Link from "next/link";
+import ReduxProvider from "@/components/ReduxProvider";
+import PageLoadedCheck from "@/components/PageLoadedCheck";
 
 export default async function AboutUs() {
   return (
@@ -87,6 +89,9 @@ export default async function AboutUs() {
           alt="arrow #4"
         />
       </div>
+      <ReduxProvider>
+        <PageLoadedCheck />
+      </ReduxProvider>
     </section>
   );
 }
