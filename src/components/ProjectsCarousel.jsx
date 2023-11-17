@@ -16,9 +16,12 @@ export default function ProjectsCarousel({ carouselData }) {
     dispatch(setLoadingState('loading'));
   }
 
+  const { innerWidth } = window;
+  const slidesPerView = innerWidth / 400;
+
   return (
     <>
-      <Swiper className="h-full" slidesPerView={4} spaceBetween={5} mousewheel={true} modules={[Mousewheel]}>
+      <Swiper className="h-full" slidesPerView={slidesPerView} spaceBetween={5} mousewheel={true} modules={[Mousewheel]}>
         {carouselData.map((project) => {
 
           return (

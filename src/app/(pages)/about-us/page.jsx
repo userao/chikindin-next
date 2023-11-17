@@ -13,14 +13,14 @@ import PageLoadedCheck from "@/components/PageLoadedCheck";
 
 export default async function AboutUs() {
   return (
-    <section className="p-[8rem]">
+    <section className="p-4 md:p-[2rem] lg:p-[8rem] text-xl">
       <TextSpinner
         text={"chikindin design"}
         radius={150}
         color={"brand-primary-400"}
       />
       <h1 className="uppercase text-2xl mb-8 font-bold">О нас</h1>
-      <p className="mb-8 font-bold text-xl w-2/3">
+      <p className="mb-8 font-bold text-xl lg:w-4/5">
         Мы - Регина и Олег Чикиндины, семейная дизайн-студия, где каждый проект
         — это проявление нашей любви к созданию интерьеров. За три года работы,
         мы реализовали множество вдохновляющих проектов для жилых и коммерческих
@@ -28,15 +28,15 @@ export default async function AboutUs() {
         интерьеры, которые соответствуют их потребностям и вдохновляют на новые
         высоты.
       </p>
-      <div className="flex gap-4 mb-8">
-        <div className="">
+      <div className="flex flex-col md:flex-row items-center gap-4 mb-8">
+        <div className="w-fit">
           <Image src={oleg} alt="Олег" placeholder="blur" width="auto" />
         </div>
-        <div className="">
+        <div className="w-fit">
           <Image src={regina} alt="Регина" placeholder="blur" width="auto" />
         </div>
       </div>
-      <p className="mb-[5.625rem] font-bold text-xl w-2/3">
+      <p className="mb-[5.625rem] font-bold lg:w-4/5">
         Работая с нами вы получите не только превосходный результат, но и
         приятный опыт общения и совместной работы над проектом. Каждая
         разработка интерьера начинается с понимания вашей уникальной истории и
@@ -46,9 +46,10 @@ export default async function AboutUs() {
         реализации. Наша цель — сделать процесс максимально комфортным и
         беззаботным для вас.
       </p>
-      <div className="relative w-full md:w-3/4 lg:w-1/2 group">
+      <div className="relative w-full md:w-3/4 lg:w-3/7 group m-0 md:mx-auto lg:m-0">
         <Image
-          className="absolute -start-[110px] -top-[70px]
+          className="hidden md:block
+            absolute -start-[110px] -top-[70px]
             group-hover:-start-[90px]
             group-hover:-top-[60px]
             duration-500"
@@ -56,7 +57,8 @@ export default async function AboutUs() {
           alt="arrow #1"
         />
         <Image
-          className="absolute -start-[90px] -top-[120px]
+          className="hidden md:block
+            absolute -start-[90px] -top-[120px]
             group-hover:-start-[80px]
             group-hover:-top-[95px]
             duration-500"
@@ -66,14 +68,15 @@ export default async function AboutUs() {
         <Link href="/form">
           <button
             className="border-[3px] border-brand-primary-400
-          rounded-xl p-4 text-neutral-400 w-full
+          rounded-xl p-4 text-neutral-400 w-full text-[1rem]
           group-hover:bg-brand-primary-400 group-hover:text-white duration-500"
           >
             оставьте заявку на просчет стоймости проекта
           </button>
         </Link>
         <Image
-          className="absolute -end-[130px] -top-[70px]
+          className="hidden md:block 
+            absolute -end-[130px] -top-[70px]
             group-hover:-end-[90px]
             group-hover:-top-[60px]
             duration-500"
@@ -81,7 +84,8 @@ export default async function AboutUs() {
           alt="arrow #3"
         />
         <Image
-          className="absolute -end-[130px] -top-[10px]
+          className="hidden md:block
+            absolute -end-[130px] -top-[10px]
             group-hover:-end-[100px]
             group-hover:-top-[5px]
             duration-500"

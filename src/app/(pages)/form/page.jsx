@@ -12,7 +12,7 @@ export default async function Form() {
         radius={150}
         color={"brand-primary-400"}
       />
-      <div className="w-2/5">
+      <div className="mx-8 w-full md:w-2/3 lg:w-2/5">
         <h1 className="uppercase text-3xl text-brand-primary-400 py-5">анкета</h1>
         <QuestionList questions={questions} />
       </div>

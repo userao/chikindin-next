@@ -28,7 +28,7 @@ module.exports = {
       height: {
         'header': '4rem',
         'footer': '6.25rem',
-        'screen-no-scroll': 'calc(100vh - 10.25rem)',
+        'screen-no-scroll': 'calc(100vh - 4rem)',
       },
       spacing: {
         'navbar-links': '2.625rem',
