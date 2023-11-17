@@ -1,14 +1,17 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Formik, Form } from "formik";
 import * as cn from "classnames";
 import Question from "./Question";
-import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { setLoadingState } from "@/store/loadingStateSlice";
 
 const QuestionsList = ({ questions }) => {
   const formInitialValues = {};
   const [submitState, setSubmitState] = useState("not submitted");
+  const dispatch = useDispatch()
 
   function handleSubmit(values) {
     setSubmitState("fetching");
@@ -24,6 +27,10 @@ const QuestionsList = ({ questions }) => {
       .catch(() => {
         setSubmitState("error");
       });
+  }
+
+  function handleClick() {
+    dispatch(setLoadingState('loading'))
   }
 
   function stringifyFormData(formData) {
@@ -87,7 +94,7 @@ const QuestionsList = ({ questions }) => {
             Спасибо, что заполнили анкету! Мы обязательно свяжемся с вами в
             ближайшее время.
           </p>
-          <Link href="/">
+          <Link href="/" onClick={handleClick}>
             <button
               className="border-[3px] border-brand-primary-400
                 rounded-xl p-4 text-neutral-400 w-full
