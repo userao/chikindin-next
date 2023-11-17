@@ -7,12 +7,18 @@ import Image from "next/image";
 import BurgerMenu from "./BurgerMenu";
 import brandLogo from "public/svg/brand_logo.svg";
 import { setLoadingState } from "@/store/loadingStateSlice";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const pathname = usePathname();
 
-  function handleClick() {
-    dispatch(setLoadingState("loading"));
+  function handleClick(e) {
+    const nextPathname = `/${e.target.href.split("/").slice(-1)[0]}`;
+    
+    if (nextPathname !== pathname) {
+      dispatch(setLoadingState("loading"));
+    }
   }
 
   return (

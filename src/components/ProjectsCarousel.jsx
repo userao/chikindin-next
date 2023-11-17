@@ -8,16 +8,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { setLoadingState } from "@/store/loadingStateSlice";
 import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
 
 export default function ProjectsCarousel({ carouselData }) {
   const dispatch = useDispatch();
+  const [slidesPerView, setSlidesPerView] = useState(null);
+
+  useEffect(() => {
+    setSlidesPerView(window.innerWidth / 400);
+  }, [])
 
   function handleClick() {
     dispatch(setLoadingState('loading'));
   }
-
-  const { innerWidth } = window;
-  const slidesPerView = innerWidth / 400;
 
   return (
     <>
