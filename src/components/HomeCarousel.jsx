@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-
+``
 export default function HomeCarousel({ images = null }) {
   const carouselSpeed = 20000;
 
@@ -28,11 +28,12 @@ export default function HomeCarousel({ images = null }) {
         speed={carouselSpeed}
       >
         {images.map(({ src, base64 }, i) => {
-
+          const fp = src.replace('public', '').replaceAll('\\', '/');
+          console.log(fp)
           return (
             <SwiperSlide key={src} className="overflow-hidden">
               <Image
-                src={src}
+                src={fp}
                 alt={`Project image #${i + 1}`}
                 fill={true}
                 placeholder={base64}

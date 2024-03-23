@@ -37,9 +37,7 @@ export default async function Home() {
   const carouselImages = await Promise.all(imagesFilepaths.map(async (filepath) => {
     const file = await fs.readFile(filepath);
     const { base64 } = await getPlaiceholder(file);
-    const filepathWithPublicAsRoot = '/' + filepath.split('\\').filter((s) => s!=='public').join('/');
-
-    return { src: filepathWithPublicAsRoot, base64 };
+    return { src: filepath, base64 };
   }));
 
   return (
