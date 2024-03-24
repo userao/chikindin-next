@@ -26,7 +26,7 @@ const Navbar = () => {
       <div className="relative flex items-center justify-center h-header">
         <div className="absolute start-8">
           <Link href="/" onClick={handleClick}>
-            <Image className="" src={brandLogo} alt="brand logo" />
+            <Image className="" src={brandLogo} alt="brand logo" loading="eager" priority={true} />
           </Link>
         </div>
         <ul className="items-center gap-navbar-links uppercase hidden sm:flex">

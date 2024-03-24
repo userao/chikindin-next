@@ -10,6 +10,14 @@ export default function ProjectImages({ images }) {
   const [shownImages, setShownImages] = useState(null);
 
   useEffect(() => {
+    if (modalImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [modalImage]);
+
+  useEffect(() => {
     function renderGalleryImages() {
       const startImageIndex = activePage * imagesPerPage;
       const currentImages = [...images].splice(startImageIndex, imagesPerPage);
@@ -50,12 +58,13 @@ export default function ProjectImages({ images }) {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mx-2">
         {shownImages &&
           shownImages.map(({ src, base64 }, i) => {
+            const filepath = src.replace('public', '').replaceAll('\\', '/');
             return (
-              <div key={src} className="relative h-[20rem] cursor-pointer">
+              <div key={filepath} className="relative h-[20rem] cursor-pointer">
                 <Image
-                  onClick={() => setModalImage({ src, base64 })}
+                  onClick={() => setModalImage({ filepath, base64 })}
                   alt={`Project image #${i + 1}`}
-                  src={src}
+                  src={filepath}
                   fill={true}
                   sizes="100%"
                   quality={10}

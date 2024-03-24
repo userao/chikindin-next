@@ -28,12 +28,11 @@ export default function HomeCarousel({ images = null }) {
         speed={carouselSpeed}
       >
         {images.map(({ src, base64 }, i) => {
-          const fp = src.replace('public', '').replaceAll('\\', '/');
-          console.log(fp)
+          const filepath = src.replace('public', '').replaceAll('\\', '/');
           return (
             <SwiperSlide key={src} className="overflow-hidden">
               <Image
-                src={fp}
+                src={filepath}
                 alt={`Project image #${i + 1}`}
                 fill={true}
                 placeholder={base64}

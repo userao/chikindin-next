@@ -1,32 +1,24 @@
+import fs from "node:fs/promises";
+import { getPlaiceholder } from "plaiceholder";
+import getProjectImagesPaths from "@/utils/getProjectImagesPaths";
 import ProjectImages from "./ProjectImages";
 import ProjectCard from "./ProjectCard";
 
-import getYDImages from "@/utils/getYDImages";
-import getProjectImages from "@/utils/getProjectImages";
-import getBase64PlaceholderUrl from "@/utils/getBase64PlaceholderUrl";
-import routes from "@/utils/routes";
-
 export default async function Project({ project }) {
-  const allYdImages = await getYDImages();
-  const projectYdImages = getProjectImages(project.id, allYdImages);
-
-  const plaiceholdersPromises = projectYdImages.map(async (image) =>
-    getBase64PlaceholderUrl(image.preview)
+  const projectImagesPaths = await getProjectImagesPaths(project.id);
+  const projectImages = await Promise.all(
+    projectImagesPaths.map(async (path) => {
+      const file = await fs.readFile(path);
+      const { base64 } = await getPlaiceholder(file);
+      return { src: path, base64 };
+    })
   );
-
-  const plaiceholders = await Promise.all(plaiceholdersPromises);
-
-  const imagesWithBlur = projectYdImages.map((image, i) => ({
-    src: image.file,
-    base64: plaiceholders[i],
-  }));
-
-  
+  const projectCard = { ...project, ...projectImages[0] };
 
   return (
     <>
-      <ProjectCard card={{ ...project, image: imagesWithBlur[0] }} />
-      <ProjectImages images={imagesWithBlur} />
+      <ProjectCard card={projectCard} />
+      <ProjectImages images={projectImages} />
     </>
   );
 }

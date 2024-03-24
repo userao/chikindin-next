@@ -26,7 +26,7 @@ export default function ProjectsCarousel({ carouselData }) {
     <>
       <Swiper className="h-full" slidesPerView={slidesPerView} spaceBetween={5} mousewheel={true} modules={[Mousewheel]}>
         {carouselData.map((project) => {
-
+          const filepath = project.src.replace('public', '').replaceAll('\\', '/');
           return (
             <SwiperSlide
               key={project.id}
@@ -34,7 +34,7 @@ export default function ProjectsCarousel({ carouselData }) {
             >
               <Link href={`our-work/${project.id}`} className="block w-full h-full relative" onClick={handleClick}>
                 <Image
-                  src={project.src}
+                  src={filepath}
                   alt={project.name}
                   fill={true}
                   sizes="100%"

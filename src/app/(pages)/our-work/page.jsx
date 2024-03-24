@@ -1,40 +1,32 @@
+import fs from "node:fs/promises";
+import { getPlaiceholder } from "plaiceholder";
 import ProjectsCarousel from "@/components/ProjectsCarousel";
 import TextSpinner from "@/components/TextSpinner";
 import projects from "@/projects.json";
-import getProjectImages from "@/utils/getProjectImages";
-import getYDImages from "@/utils/getYDImages";
-import getBase64PlaceholderUrl from "@/utils/getBase64PlaceholderUrl";
 import ReduxProvider from "@/components/ReduxProvider";
 import PageLoadedCheck from "@/components/PageLoadedCheck";
+import getProjectImagesPaths from "@/utils/getProjectImagesPaths";
 
 export default async function OurWork() {
-  const allYdImages = await getYDImages();
-
-  const carouselImages = projects.map((project) => {
-    const projectImages = getProjectImages(project.id, allYdImages);
-    const [firstImage] = projectImages;
-    return firstImage;
-  });
-
-  const plaiceholdersPromises = carouselImages.map((image) =>
-    getBase64PlaceholderUrl(image.preview)
+  const projectImagesPathsArr = await Promise.all(
+    projects.map((project) => getProjectImagesPaths(project.id))
   );
-
-  const plaiceholders = await Promise.all(plaiceholdersPromises);
-
-  const carouselData = projects.map((project, i) => ({
-    ...project,
-    src: carouselImages[i].file,
-    base64: plaiceholders[i],
+  const carouselImages = await Promise.all(
+    projectImagesPathsArr.map(async (pathsArr) => {
+      const [firstImagePath] = pathsArr;
+      const file = await fs.readFile(firstImagePath);
+      const { base64 } = await getPlaiceholder(file);
+      return { src: firstImagePath, base64 };
+    })
+  );
+  const carouselData = carouselImages.map((image, i) => ({
+    ...projects[i],
+    ...image,
   }));
 
   return (
     <section className="h-screen-no-scroll">
-      <TextSpinner
-        text={"наши работы"}
-        radius={150}
-        color={"brand-primary-400"}
-      />
+      <TextSpinner text={"наши работы"} radius={150} color={"brand-primary-400"} />
       <ReduxProvider>
         <ProjectsCarousel carouselData={carouselData} />
         <PageLoadedCheck />
