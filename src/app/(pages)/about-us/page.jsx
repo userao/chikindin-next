@@ -1,8 +1,7 @@
 import TextSpinner from "@/components/TextSpinner";
 import React from "react";
 import Image from "next/image";
-import oleg from "public/images/Oleg.png";
-import regina from "public/images/Regina.png";
+import chikindinsImage from "public/images/chikindins.jpeg";
 import arrow1 from "public/svg/arrow1.svg";
 import arrow2 from "public/svg/arrow2.svg";
 import arrow3 from "public/svg/arrow3.svg";
@@ -10,6 +9,8 @@ import arrow4 from "public/svg/arrow4.svg";
 import Link from "next/link";
 import ReduxProvider from "@/components/ReduxProvider";
 import PageLoadedCheck from "@/components/PageLoadedCheck";
+
+//вынести кнопку в отдельный компонент
 
 export default async function AboutUs() {
   return (
@@ -28,12 +29,9 @@ export default async function AboutUs() {
         интерьеры, которые соответствуют их потребностям и вдохновляют на новые
         высоты.
       </p>
-      <div className="flex flex-col md:flex-row items-center gap-4 mb-8">
-        <div className="w-fit">
-          <Image src={oleg} alt="Олег" placeholder="blur" width="auto" />
-        </div>
-        <div className="w-fit">
-          <Image src={regina} alt="Регина" placeholder="blur" width="auto" />
+      <div className="flex flex-col items-left gap-4 mb-8">
+        <div className="w-fit lg:w-[60%]">
+          <Image src={chikindinsImage} alt="Олег" placeholder="blur" width="auto" className=""/>
         </div>
       </div>
       <p className="mb-[5.625rem] font-bold lg:w-4/5">

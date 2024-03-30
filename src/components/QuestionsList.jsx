@@ -1,5 +1,5 @@
 "use client";
-
+// сделать бота для отправки анкет
 import React, { useState } from "react";
 import Link from "next/link";
 import { Formik, Form } from "formik";
@@ -7,16 +7,40 @@ import * as cn from "classnames";
 import Question from "./Question";
 import { useDispatch } from "react-redux";
 import { setLoadingState } from "@/store/loadingStateSlice";
+import { useEffect } from "react";
 
 const QuestionsList = ({ questions }) => {
   const formInitialValues = {};
   const [submitState, setSubmitState] = useState("not submitted");
-  const dispatch = useDispatch()
+  const [projectType, setProjectType] = useState(null);
+  const [questionsToRender, setQuestionsToRender] = useState([]);
+  const dispatch = useDispatch();
+
+  const firstQuestion = {
+    "type": "radio",
+    "title": "Тип интерьера",
+    "variants": ["Жилой", "Общественный"],
+    "required": true,
+  }
+  
+  useEffect(() => {
+    if (!projectType) return;
+    const questionsByProjectType = questions.filter(q => {
+      return q.projectType === 'all' || q.projectType === projectType;
+    });
+    setQuestionsToRender(questionsByProjectType);
+  }, [projectType])
+
+  function handleChange(e) {
+    const projectType = e.target.value === 'Жилой' ? 'living' : 'civic';
+    setProjectType(projectType); 
+  }
 
   function handleSubmit(values) {
     setSubmitState("fetching");
     const messageText = stringifyFormData(values);
     const encodedText = encodeURIComponent(messageText);
+    console.log(messageText)
 
     fetch(
       `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TG_BOT_TOKEN}/sendMessage?chat_id=${process.env.NEXT_PUBLIC_TG_CHAT_ID}&text=${encodedText}`
@@ -72,11 +96,12 @@ const QuestionsList = ({ questions }) => {
 
             return (
               <Form className="question-list">
-                {questions.map((question) => (
+                <Question question={firstQuestion} customHandleChange={handleChange} />
+                {questionsToRender && questionsToRender.map((question) => (
                   <Question key={question.id} question={question} />
                 ))}
                 <button className={buttonClasses} type="submit">
-                  {isValid ? "Отправить" : "Заполните обязательные поля"}
+                  {isValid ? "Отправить" : "Ответьте на обязательные вопросы"}
                 </button>
               </Form>
             );

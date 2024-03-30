@@ -3,38 +3,165 @@
     "id": 0,
     "type": "input",
     "title": "Ваше имя",
-    "required": true
+    "required": true,
+    "projectType": "all"
   },
   {
-    "id": 1,
+    "id": "1",
     "type": "input",
     "title": "Ваш телефон",
-    "required": true
+    "required": true,
+    "projectType": "all"
   },
   {
     "id": 2,
     "type": "input",
     "title": "Ваш e-mail",
-    "required": true
+    "required": true,
+    "projectType": "all"
   },
   {
     "id": 3,
     "type": "input",
     "title": "Адрес объекта",
-    "required": true
+    "required": true,
+    "projectType": "all"
   },
   {
     "id": 4,
-    "type": "radio",
-    "title": "Согласование перепланировки",
-    "variants": ["С согласованием", "Без согласования"],
-    "required": false
+    "type": "input",
+    "title": "Площадь (м2)",
+    "required": true,
+    "projectType": "all"
   },
   {
     "id": 5,
+    "type": "input",
+    "title": "Стилистика",
+    "required": true,
+    "projectType": "all"
+  },
+  {
+    "id": 6,
+    "type": "radio",
+    "title": "Сколько членов семьи?",
+    "variants": ["1", "2", "3", "4", "4+"],
+    "required": false,
+    "projectType": "living"
+  },
+  {
+    "id": 7,
     "type": "checkbox",
-    "title": "Мебель для гостиной",
-    "variants": ["Шкаф", "Диван", "Барная стойка", "Шест для стриптиза", "Стол для покера"],
-    "required": false
+    "title": "Домашние животные",
+    "variants": ["Собаки", "Кошки", "Птицы", "Рыбы", "Рептилии", "Насекомые"],
+    "required": false,
+    "projectType": "living"
+  },
+  {
+    "id": 8,
+    "type": "input",
+    "title": "Подробности о ваших домашних животных (порода, необходимое оборудование и т.п.)",
+    "required": false,
+    "projectType": "living"
+  },
+  {
+    "id": 9,
+    "type": "checkbox",
+    "title": "Особенности жильцов",
+    "variants": ["Работа из дома", "Высокий рост", "Низкий рост", "Инвалидность", "Другое"],
+    "required": false,
+    "projectType": "living"
+  },
+  {
+    "id": 10,
+    "type": "checkbox",
+    "title": "Необходимые зоны",
+    "variants": ["Кухня", "Гостиная", "Кухня-гостиная", "Кабинет", "Спальня", "Гардеробная", "Игровая", "Балкон", "Другое"],
+    "required": false,
+    "projectType": "living"
+  },
+  {
+    "id": 11,
+    "type": "radio",
+    "title": "Количество спален",
+    "variants": ["1", "2", "3", "4", "4+"],
+    "required": false,
+    "projectType": "living"
+  },
+  {
+    "id": 12,
+    "type": "radio",
+    "title": "Количество санузлов",
+    "variants": ["1", "2", "3", "4", "4+"],
+    "required": false,
+    "projectType": "living"
+  },
+  {
+    "id": 13,
+    "type": "radio",
+    "title": "Количество гардеробных",
+    "variants": ["1", "2", "3", "4", "4+"],
+    "required": false,
+    "projectType": "living"
+  },
+  {
+    "id": 14,
+    "type": "radio",
+    "title": "Количество балконов",
+    "variants": ["1", "2", "3", "4", "4+"],
+    "required": false,
+    "projectType": "living"
+  },
+  {
+    "id": 15,
+    "type": "input",
+    "title": "Назначение (например, кафе, спа, отель и т.д.)",
+    "required": false,
+    "projectType": "civic"
+  },
+  {
+    "id": 16,
+    "type": "input",
+    "title": "Вместимость",
+    "required": false,
+    "projectType": "civic"
+  },
+  {
+    "id": 17,
+    "type": "radio",
+    "title": "Есть ли брендбук?",
+    "variants": ["Да", "Требуется разработка"],
+    "required": false,
+    "projectType": "civic"
+  },
+  {
+    "id": 18,
+    "type": "radio",
+    "title": "Цветовая палитра",
+    "variants": [
+      "Светлая с яркими акцентами",
+      "Светлая монотонная",
+      "Контрастная/комплиментарная",
+      "Насыщенная яркая",
+      "Теманая, глубокая",
+      "Свой вариант"
+    ],
+    "required": false,
+    "projectType": "all"
+  },
+  {
+    "id": 19,
+    "type": "input",
+    "title": "Необходимая техника",
+    "required": false,
+    "projectType": "all"
+  },
+  {
+    "id": 20,
+    "type": "radio",
+    "title": "Желаемые сроки реализации проекта",
+    "variants": ["Как можно скорее", "К определенной дате"],
+    "required": false,
+    "projectType": "all"
   }
 ]

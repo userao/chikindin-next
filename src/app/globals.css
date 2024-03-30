@@ -12,6 +12,8 @@
   --clr-brand-primary-100: hsl(231, 100%, 85%);
   --clr-brand-primary-400: hsl(230, 100%, 50%);
   --clr-brand-primary-700: hsl(230, 100%, 25%);
+  --swiper-pagination-bullet-width: 10px;
+  --swiper-pagination-bullet-height: 10px;
 }
 
 @font-face {

@@ -2,14 +2,14 @@ import React from "react";
 import AnswerVariantsTypeQuestion from "./AnswerVariantsTypeQuestion";
 import InputTypeQuestion from "./InputTypeQuestion";
 
-const Question = ({ question }) => {
-  const { type } = question;
+const Question = (props) => {
+  const { type } = props.question;
 
   if (type === 'input') {
-    return <InputTypeQuestion question={question} />
+    return <InputTypeQuestion {...props} />
   }
 
-  return <AnswerVariantsTypeQuestion question={question} />;
+  return <AnswerVariantsTypeQuestion {...props} />;
 };
 
 export default Question;

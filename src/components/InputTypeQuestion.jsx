@@ -5,7 +5,6 @@ const InputTypeQuestion = ({ question }) => {
   const { id, title, required } = question;
   const { setFieldValue, touched, errors, isValid, submitCount } = useFormikContext();
   const [inputValue, setInputValue] = useState("");
-
   function handleChange(e) {
     setInputValue(e.target.value);
     setFieldValue(title, e.target.value);
@@ -28,7 +27,7 @@ const InputTypeQuestion = ({ question }) => {
   }
 
   return (
-    <div className="py-4">
+    <div className="py-4 animate-fadeIn">
       <div className="relative">
         <Field
           className={inputClasses}

@@ -1,9 +1,10 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel } from "swiper/modules";
+import { Mousewheel, Pagination  } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
+import 'swiper/css/pagination';
 import Link from "next/link";
 import Image from "next/image";
 import { setLoadingState } from "@/store/loadingStateSlice";
@@ -12,27 +13,42 @@ import { useEffect, useState } from "react";
 
 export default function ProjectsCarousel({ carouselData }) {
   const dispatch = useDispatch();
-  const [slidesPerView, setSlidesPerView] = useState(null);
-
-  useEffect(() => {
-    setSlidesPerView(window.innerWidth / 400);
-  }, [])
 
   function handleClick() {
-    dispatch(setLoadingState('loading'));
+    dispatch(setLoadingState("loading"));
   }
 
   return (
     <>
-      <Swiper className="h-full" slidesPerView={slidesPerView} spaceBetween={5} mousewheel={true} modules={[Mousewheel]}>
+      <Swiper
+        className="w-full h-full"
+        slidesPerView={1}
+        spaceBetween={5}
+        mousewheel={true}
+        breakpoints={{
+          700: {
+            slidesPerView: 2,
+          },
+          1000: {
+            slidesPerView: 3,
+          },
+          1500: {
+            slidesPerView: 4,
+          }
+        }}
+        pagination={{
+          dynamicBullets: true,
+        }}
+        modules={[Mousewheel, Pagination]}
+        >
         {carouselData.map((project) => {
-          const filepath = project.src.replace('public', '').replaceAll('\\', '/');
+          const filepath = project.src.replace("public", "").replaceAll("\\", "/");
           return (
-            <SwiperSlide
-              key={project.id}
-              className="overflow-hidden relative flex-none"
-            >
-              <Link href={`our-work/${project.id}`} className="block w-full h-full relative" onClick={handleClick}>
+            <SwiperSlide key={project.id} className="flex content-center items-center">
+              <Link
+                href={`our-work/${project.id}`}
+                className="block w-full h-full relative"
+                onClick={handleClick}>
                 <Image
                   src={filepath}
                   alt={project.name}

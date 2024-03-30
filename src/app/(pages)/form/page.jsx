@@ -7,7 +7,7 @@ import PageLoadedCheck from "@/components/PageLoadedCheck";
 export default async function Form() {
   return (
     <ReduxProvider>
-      <section className="flex justify-center my-6">
+      <section className="flex justify-center my-6 min-h-screen">
         <TextSpinner
           text={"заполните анкету"}
           radius={150}
