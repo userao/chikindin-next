@@ -39,11 +39,15 @@ const QuestionsList = ({ questions }) => {
   function handleSubmit(values) {
     setSubmitState("fetching");
     const messageText = stringifyFormData(values);
-    const encodedText = encodeURIComponent(messageText);
-    console.log(messageText)
-
     fetch(
-      `https://api.telegram.org/bot${process.env.NEXT_PUBLIC_TG_BOT_TOKEN}/sendMessage?chat_id=${process.env.NEXT_PUBLIC_TG_CHAT_ID}&text=${encodedText}`
+      `http://localhost:5000/api/polls`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values)
+      }
     )
       .then(() => {
         setSubmitState("success");
