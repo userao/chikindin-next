@@ -1,24 +1,22 @@
-import fs from "node:fs/promises";
-import { getPlaiceholder } from "plaiceholder";
 import getProjectImagesPaths from "@/utils/getProjectImagesPaths";
 import ProjectImages from "./ProjectImages";
 import ProjectCard from "./ProjectCard";
+import getBase64BlurPlaceholder from "@/utils/getBase64BlurPlaceholder";
 
 export default async function Project({ project }) {
   const projectImagesPaths = await getProjectImagesPaths(project.id);
-  const projectImages = await Promise.all(
-    projectImagesPaths.map(async (path) => {
-      // const file = await fs.readFile(path);
-      // const { base64 } = await getPlaiceholder(file);
-      return { src: path };
-    })
-  );
-  const projectCard = { ...project, ...projectImages[0] };
+
+  const cardImagePlaceholder = await getBase64BlurPlaceholder(projectImagesPaths[0]);
+  const projectCard = {
+    ...project,
+    src: projectImagesPaths[0],
+    placeholder: cardImagePlaceholder,
+  };
 
   return (
     <>
       <ProjectCard card={projectCard} />
-      <ProjectImages images={projectImages} />
+      <ProjectImages images={projectImagesPaths} />
     </>
   );
 }

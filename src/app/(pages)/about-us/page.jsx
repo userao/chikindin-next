@@ -31,7 +31,12 @@ export default async function AboutUs() {
       </p>
       <div className="flex flex-col items-left gap-4 mb-8">
         <div className="w-fit lg:w-[60%]">
-          <Image src={chikindinsImage} alt="Олег" placeholder="blur" width="auto" className=""/>
+          <Image
+            src={chikindinsImage}
+            alt="Олег"
+            placeholder="blur"
+            width="auto"
+          />
         </div>
       </div>
       <p className="mb-[5.625rem] font-bold lg:w-4/5">
