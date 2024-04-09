@@ -32,8 +32,8 @@ export default function ProjectCard({ card }) {
         <Image
           src={filepath}
           alt={card.name}
-          placeholder="blur"
-          blurDataURL={card.base64}
+          
+          
           fill={true}
           sizes="100%"
           className="object-cover"
