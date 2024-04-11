@@ -1,5 +1,4 @@
 "use client";
-// сделать бота для отправки анкет
 import React, { useState } from "react";
 import Link from "next/link";
 import { Formik, Form } from "formik";
@@ -8,8 +7,11 @@ import Question from "./Question";
 import { useDispatch } from "react-redux";
 import { setLoadingState } from "@/store/loadingStateSlice";
 import { useEffect } from "react";
+import getBackendRoute from "@/utils/getBackendRoute";
 
 const QuestionsList = ({ questions }) => {
+  const backendHost = getBackendRoute();
+  
   const formInitialValues = {};
   const [submitState, setSubmitState] = useState("not submitted");
   const [projectType, setProjectType] = useState(null);
@@ -38,9 +40,8 @@ const QuestionsList = ({ questions }) => {
 
   function handleSubmit(values) {
     setSubmitState("fetching");
-    const messageText = stringifyFormData(values);
     fetch(
-      `http://localhost:5000/api/polls`,
+      `${backendHost}/api/polls`,
       {
         method: "POST",
         headers: {
@@ -59,18 +60,6 @@ const QuestionsList = ({ questions }) => {
 
   function handleClick() {
     dispatch(setLoadingState('loading'))
-  }
-
-  function stringifyFormData(formData) {
-    return Object.entries(formData).reduce((acc, [key, val]) => {
-      let valueString = val;
-
-      if (Array.isArray(val)) {
-        valueString = val.join(", ");
-      }
-
-      return `${acc}${key}: ${valueString}\n`;
-    }, "Новая анкета:\n\n");
   }
 
   return (
