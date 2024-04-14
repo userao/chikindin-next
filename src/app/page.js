@@ -23,9 +23,9 @@ export default async function Home() {
     <section className="h-screen-no-scroll">
       <TextSpinner text={"chikindin design"} radius={150} color={"white"} />
       <HomeCarousel images={carouselImages} />
-      <ReduxProvider>
+      {/* <ReduxProvider>
         <PageLoadedCheck />
-      </ReduxProvider>
+      </ReduxProvider> */}
     </section>
   );
 }

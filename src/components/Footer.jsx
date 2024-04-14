@@ -3,8 +3,6 @@ import Image from "next/image";
 import tLogo from "public/svg/t_logo.svg";
 import instaLogo from "public/svg/insta_logo.svg";
 
-// todo:
-// ссылки на соцсети
 const Footer = () => {
   return (
     <footer className="bg-neutral-100">
@@ -14,10 +12,10 @@ const Footer = () => {
           <p>+7 999 178-86-55</p>
         </div>
         <div className="flex gap-6">
-          <a href="#">
+          <a href="https://www.instagram.com/chikindin_design?igsh=MXBsYzQ3cjVmbWlxMg==">
             <Image src={tLogo} alt="instagram link" />
           </a>
-          <a href="#">
+          <a href="https://t.me/ressona13">
             <Image src={instaLogo} alt="telegram link" />
           </a>
         </div>

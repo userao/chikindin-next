@@ -1,10 +1,10 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, Pagination  } from "swiper/modules";
+import { Mousewheel, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-import 'swiper/css/pagination';
+import "swiper/css/pagination";
 import Link from "next/link";
 import Image from "next/image";
 import { setLoadingState } from "@/store/loadingStateSlice";
@@ -34,13 +34,12 @@ export default function ProjectsCarousel({ carouselData }) {
           },
           1500: {
             slidesPerView: 4,
-          }
+          },
         }}
         pagination={{
           dynamicBullets: true,
         }}
-        modules={[Mousewheel, Pagination]}
-        >
+        modules={[Mousewheel, Pagination]}>
         {carouselData.map((project) => {
           const filepath = project.src.replace("public", "").replaceAll("\\", "/");
           return (

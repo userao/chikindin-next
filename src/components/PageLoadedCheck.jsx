@@ -2,10 +2,9 @@
 
 import { setLoadingState } from "@/store/loadingStateSlice";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function PageLoadedCheck() {
-  const loadingState = useSelector((state) => state.loadingState);
   const dispatch = useDispatch();
 
   useEffect(() => {

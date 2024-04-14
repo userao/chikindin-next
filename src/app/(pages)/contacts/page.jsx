@@ -4,6 +4,11 @@ import TextSpinner from "@/components/TextSpinner";
 import ReduxProvider from "@/components/ReduxProvider";
 import PageLoadedCheck from "@/components/PageLoadedCheck";
 
+export const metadata = {
+  title: "Chikindin-design: Наши контакты",
+  description: "Способы, с помощью которых с нами можно связаться.",
+};
+
 const Contacts = () => {
   return (
     <section className="h-screen-no-scroll flex items-center justify-center">

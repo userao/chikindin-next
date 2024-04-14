@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/autoplay";
-``;
+
 export default function HomeCarousel({ images = null }) {
   const carouselSpeed = 10000;
 
@@ -24,15 +24,14 @@ export default function HomeCarousel({ images = null }) {
           },
           1500: {
             slidesPerView: 2,
-          }
+          },
         }}
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,
         }}
         speed={carouselSpeed}
-        modules={[Autoplay]}
-      >
+        modules={[Autoplay]}>
         {images.map(({ src, base64 }, i) => {
           const filepath = src.replace("public", "").replaceAll("\\", "/");
           return (

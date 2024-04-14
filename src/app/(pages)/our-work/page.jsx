@@ -6,6 +6,11 @@ import PageLoadedCheck from "@/components/PageLoadedCheck";
 import getProjectImagesPaths from "@/utils/getProjectImagesPaths";
 import getBase64BlurPlaceholder from "@/utils/getBase64BlurPlaceholder";
 
+export const metadata = {
+  title: "Chikindin-design: Наши работы",
+  description: "Реализованные нами дизайн-проекты для жилых и общественных помещений.",
+};
+
 export default async function OurWork() {
   const projectImagesPathsArr = await Promise.all(
     projects.map((project) => getProjectImagesPaths(project.id))

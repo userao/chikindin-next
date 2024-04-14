@@ -1,7 +1,5 @@
 "use client";
 
-import Router, { useRouter } from "next/router";
-import { usePathname, useSearchParams } from "next/navigation";
 import React, { useEffect, useRef } from "react";
 import LoadingBar from "react-top-loading-bar";
 import { useSelector } from "react-redux";
@@ -9,12 +7,11 @@ import { useSelector } from "react-redux";
 function PageLoadingBar() {
   const ref = useRef(null);
   const loadingState = useSelector((state) => state.loadingState.loadingState);
-  
 
   useEffect(() => {
     const barEl = ref.current;
-    
-    if (loadingState === 'loading') {
+
+    if (loadingState === "loading") {
       barEl.continuousStart();
     } else {
       barEl.complete();

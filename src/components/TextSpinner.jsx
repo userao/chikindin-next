@@ -34,9 +34,8 @@ export default function TextSpinner({ text, radius, color }) {
           style={{
             height: radius,
             transform: `rotate(${j * charStepAngle + startAngle}deg)`,
-            textShadow: '0px 10px 10px',
-          }}
-        >
+            textShadow: "0px 10px 10px",
+          }}>
           {ch}
         </p>
       );
@@ -47,18 +46,16 @@ export default function TextSpinner({ text, radius, color }) {
   return (
     <div
       className="z-50 pointer-events-none fixed justify-center items-center top-5 right-3 animate-[spin_40s_linear_infinite] hidden lg:flex"
-      style={{ width: radius * 2, aspectRatio: "1/1" }}
-    >
+      style={{ width: radius * 2, aspectRatio: "1/1" }}>
       <div
-        className='text-center text-sm'
+        className="text-center text-sm"
         style={{
           color: `var(--clr-${color})`,
           width: radius * 2,
           aspectRatio: "1/1",
           transform: "translateX(47%)",
         }}
-        ref={spinner}
-      >
+        ref={spinner}>
         {charElements}
       </div>
     </div>

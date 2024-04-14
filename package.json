@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^14.1.4",
     "@plaiceholder/next": "^3.0.0",
     "@reduxjs/toolkit": "^1.9.5",
     "autoprefixer": "10.4.15",

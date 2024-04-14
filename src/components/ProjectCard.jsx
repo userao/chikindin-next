@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 
 export default function ProjectCard({ card }) {
   const fadeBlockRef = useRef(null);
-  const filepath = card.src.replace('public', '').replaceAll('\\', '/');
+  const filepath = card.src.replace("public", "").replaceAll("\\", "/");
 
   useEffect(() => {
     if (!fadeBlockRef.current) return;
@@ -15,10 +15,7 @@ export default function ProjectCard({ card }) {
     function setOpacity() {
       const scrolledBy = window.scrollY;
       const opacityValue = (scrolledBy / viewportHeight) * 1.5;
-      fadeBlockRef.current.style.setProperty(
-        "opacity",
-        Math.min(opacityValue, 1)
-      );
+      fadeBlockRef.current.style.setProperty("opacity", Math.min(opacityValue, 1));
     }
 
     window.addEventListener("scroll", setOpacity);

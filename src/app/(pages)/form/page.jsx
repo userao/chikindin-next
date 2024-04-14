@@ -4,6 +4,11 @@ import questions from "@/questions.json";
 import ReduxProvider from "@/components/ReduxProvider";
 import PageLoadedCheck from "@/components/PageLoadedCheck";
 
+export const metadata = {
+  title: "Chikindin-design: Анкета",
+  description: "Вопросы из этой анкеты помогут нам лучше понять желания заказчика и учесть все необходимые особенности при разработке дизайн-проекта.",
+};
+
 export default async function Form() {
   return (
     <ReduxProvider>

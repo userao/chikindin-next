@@ -2,6 +2,11 @@ import TextSpinner from "@/components/TextSpinner";
 import ReduxProvider from "@/components/ReduxProvider";
 import PageLoadedCheck from "@/components/PageLoadedCheck";
 
+export const metadata = {
+  title: "Chikindin-design: Услуги",
+  description: "Услуги, предоставляемые заказчику при разработке индивидуального дизайн-проекта.",
+};
+
 export default function Services() {
   return (
     <section className="flex justify-center">

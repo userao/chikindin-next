@@ -5,9 +5,9 @@ import { useDispatch } from "react-redux";
 
 function BurgerMenu() {
   const [modalShown, setModalShown] = useState(false);
-	const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-	function handleClick() {
+  function handleClick() {
     dispatch(setLoadingState("loading"));
     setModalShown(false);
   }
@@ -16,8 +16,7 @@ function BurgerMenu() {
     <>
       <div
         onClick={() => setModalShown(true)}
-        className="h-2/3 aspect-square absolute end-5 flex justify-center items-center border-2 border-brand-primary-400 rounded-md drop-shadow-xl sm:hidden"
-      >
+        className="h-2/3 aspect-square absolute end-5 flex justify-center items-center border-2 border-brand-primary-400 rounded-md drop-shadow-xl sm:hidden">
         <div className="w-full">
           <div className="border-2 border-brand-primary-400 w-2/3 mx-auto rounded-sm my-[0.3rem]"></div>
           <div className="border-2 border-brand-primary-400 w-2/3 mx-auto rounded-sm my-[0.3rem]"></div>
@@ -28,8 +27,7 @@ function BurgerMenu() {
         <div className="absolute end-2 top-2 drop-shadow-lg rounded-md z-50 bg-white text-xl">
           <button
             onClick={() => setModalShown(false)}
-            className="absolute w-9 aspect-square top-4 end-5 text-neutral-400 text-[2rem] leading-6"
-          >
+            className="absolute w-9 aspect-square top-4 end-5 text-neutral-400 text-[2rem] leading-6">
             <p>&times;</p>
           </button>
           <div className="px-4 me-[5rem]">

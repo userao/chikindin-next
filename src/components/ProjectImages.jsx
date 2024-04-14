@@ -26,7 +26,7 @@ export default function ProjectImages({ images }) {
   }, [activePage, images]);
 
   function getPageLinkElements(imagesPerPage, images) {
-        const numberOfPages = Math.ceil(images.length / imagesPerPage);
+    const numberOfPages = Math.ceil(images.length / imagesPerPage);
     const pagesLinksElements = [];
     for (let i = 0; i < numberOfPages; i += 1) {
       const pageLinkElement = (
@@ -35,8 +35,7 @@ export default function ProjectImages({ images }) {
           className={`cursor-pointer hover:text-brand-primary-400 duration-300 ${
             i === activePage ? "text-brand-primary-400" : null
           }`}
-          onClick={() => setActivePage(i)}
-        >
+          onClick={() => setActivePage(i)}>
           <a>{i + 1}</a>
         </li>
       );
@@ -45,7 +44,6 @@ export default function ProjectImages({ images }) {
 
     return pagesLinksElements;
   }
-  
 
   function handleClose(e) {
     setModalImage(null);

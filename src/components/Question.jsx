@@ -5,8 +5,8 @@ import InputTypeQuestion from "./InputTypeQuestion";
 const Question = (props) => {
   const { type } = props.question;
 
-  if (type === 'input') {
-    return <InputTypeQuestion {...props} />
+  if (type === "input") {
+    return <InputTypeQuestion {...props} />;
   }
 
   return <AnswerVariantsTypeQuestion {...props} />;

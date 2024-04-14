@@ -11,7 +11,7 @@ import getBackendRoute from "@/utils/getBackendRoute";
 
 const QuestionsList = ({ questions }) => {
   const backendHost = getBackendRoute();
-  
+
   const formInitialValues = {};
   const [submitState, setSubmitState] = useState("not submitted");
   const [projectType, setProjectType] = useState(null);
@@ -19,37 +19,34 @@ const QuestionsList = ({ questions }) => {
   const dispatch = useDispatch();
 
   const firstQuestion = {
-    "type": "radio",
-    "title": "Тип интерьера",
-    "variants": ["Жилой", "Общественный"],
-    "required": true,
-  }
-  
+    type: "radio",
+    title: "Тип интерьера",
+    variants: ["Жилой", "Общественный"],
+    required: true,
+  };
+
   useEffect(() => {
     if (!projectType) return;
-    const questionsByProjectType = questions.filter(q => {
-      return q.projectType === 'all' || q.projectType === projectType;
+    const questionsByProjectType = questions.filter((q) => {
+      return q.projectType === "all" || q.projectType === projectType;
     });
     setQuestionsToRender(questionsByProjectType);
-  }, [projectType])
+  }, [projectType]);
 
   function handleChange(e) {
-    const projectType = e.target.value === 'Жилой' ? 'living' : 'civic';
-    setProjectType(projectType); 
+    const projectType = e.target.value === "Жилой" ? "living" : "civic";
+    setProjectType(projectType);
   }
 
   function handleSubmit(values) {
     setSubmitState("fetching");
-    fetch(
-      `${backendHost}/api/polls`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values)
-      }
-    )
+    fetch(`${backendHost}/api/polls`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
       .then(() => {
         setSubmitState("success");
       })
@@ -59,16 +56,13 @@ const QuestionsList = ({ questions }) => {
   }
 
   function handleClick() {
-    dispatch(setLoadingState('loading'))
+    dispatch(setLoadingState("loading"));
   }
 
   return (
     <>
       {(submitState === "not submitted" || submitState === "error") && (
-        <Formik
-          initialValues={formInitialValues}
-          onSubmit={(values) => handleSubmit(values)}
-        >
+        <Formik initialValues={formInitialValues} onSubmit={(values) => handleSubmit(values)}>
           {({ isValid }) => {
             const buttonClasses = cn(
               "px-3",
@@ -90,9 +84,10 @@ const QuestionsList = ({ questions }) => {
             return (
               <Form className="question-list">
                 <Question question={firstQuestion} customHandleChange={handleChange} />
-                {questionsToRender && questionsToRender.map((question) => (
-                  <Question key={question.id} question={question} />
-                ))}
+                {questionsToRender &&
+                  questionsToRender.map((question) => (
+                    <Question key={question.id} question={question} />
+                  ))}
                 <button className={buttonClasses} type="submit">
                   {isValid ? "Отправить" : "Ответьте на обязательные вопросы"}
                 </button>
@@ -109,15 +104,13 @@ const QuestionsList = ({ questions }) => {
       {submitState === "success" && (
         <div className="h-screen-no-scroll items-center justify-center">
           <p className="pb-5">
-            Спасибо, что заполнили анкету! Мы обязательно свяжемся с вами в
-            ближайшее время.
+            Спасибо, что заполнили анкету! Мы обязательно свяжемся с вами в ближайшее время.
           </p>
           <Link href="/" onClick={handleClick}>
             <button
               className="border-[3px] border-brand-primary-400
                 rounded-xl p-4 text-neutral-400 w-full
-                hover:bg-brand-primary-400 hover:text-white duration-500"
-            >
+                hover:bg-brand-primary-400 hover:text-white duration-500">
               Вернуться на главную
             </button>
           </Link>

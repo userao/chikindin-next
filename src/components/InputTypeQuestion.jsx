@@ -37,8 +37,7 @@ const InputTypeQuestion = ({ question }) => {
           value={inputValue}
           onChange={handleChange}
           placeholder=" "
-          validate={required ? (value) => checkIfEmpty(value) : null}
-        ></Field>
+          validate={required ? (value) => checkIfEmpty(value) : null}></Field>
         <label htmlFor={`question-${id}`} className={labelClasses}>
           {title}
         </label>
