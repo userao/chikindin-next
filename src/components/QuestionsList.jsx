@@ -1,12 +1,13 @@
 "use client";
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { Formik, Form } from "formik";
 import * as cn from "classnames";
 import Question from "./Question";
-import { useDispatch } from "react-redux";
+import Loading from "./Loading";
 import { setLoadingState } from "@/store/loadingStateSlice";
-import { useEffect } from "react";
 import getBackendRoute from "@/utils/getBackendRoute";
 
 const QuestionsList = ({ questions }) => {
@@ -21,7 +22,7 @@ const QuestionsList = ({ questions }) => {
   const firstQuestion = {
     type: "radio",
     title: "Тип интерьера",
-    variants: ["Жилой", "Общественный"],
+    options: [{ title: "Жилой" }, { title: "Общественный" }],
     required: true,
   };
 
@@ -96,11 +97,7 @@ const QuestionsList = ({ questions }) => {
           }}
         </Formik>
       )}
-      {submitState === "fetching" && (
-        <div className="h-screen-no-scroll flex items-center justify-center">
-          <div className="w-9 h-9 border-4 border-brand-primary-400 border-s-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
+      {submitState === "fetching" && <Loading />}
       {submitState === "success" && (
         <div className="h-screen-no-scroll items-center justify-center">
           <p className="pb-5">

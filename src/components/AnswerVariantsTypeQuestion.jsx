@@ -4,7 +4,7 @@ import React from "react";
 import { Field, useFormikContext } from "formik";
 
 const AnswerVariantsTypeQuestion = ({ question, customHandleChange = null }) => {
-  const { variants, type, title, required } = question;
+  const { options, type, title, required } = question;
   const { handleChange, touched, errors, isValid, submitCount } = useFormikContext();
 
   function checkIfAnswered(value) {
@@ -21,23 +21,23 @@ const AnswerVariantsTypeQuestion = ({ question, customHandleChange = null }) => 
   return (
     <div className="py-4 animate-fadeIn">
       <p className="pb-1 font-bold text-lg">{question.title}</p>
-      {variants &&
-        variants.map((variant) => {
+      {options &&
+        options.map((option) => {
           return (
-            <div className="py-1" key={variant}>
+            <div className="py-1" key={option.id}>
               <Field
                 type={type}
-                id={variant}
+                id={option.id}
                 name={title}
-                value={variant}
+                value={option.title}
                 onChange={(e) => {
                   if (customHandleChange) customHandleChange(e);
                   handleChange(e);
                 }}
                 validate={required ? (value) => checkIfAnswered(value) : null}
               />
-              <label htmlFor={variant} className="ps-1">
-                {variant}
+              <label htmlFor={option.id} className="ps-1">
+                {option.title}
               </label>
             </div>
           );
