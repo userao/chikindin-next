@@ -31,11 +31,6 @@ const Navbar = () => {
         </div>
         <ul className="items-center gap-navbar-links uppercase hidden sm:flex">
           <li className="hover:text-brand-primary-400 duration-300">
-            <Link href="/about-us" onClick={handleClick}>
-              О нас
-            </Link>
-          </li>
-          <li className="hover:text-brand-primary-400 duration-300">
             <Link href="/our-work" onClick={handleClick}>
               Наши работы
             </Link>
