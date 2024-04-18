@@ -1,9 +1,14 @@
 import { getPlaiceholder } from "plaiceholder";
-import fs from "node:fs/promises";
+import getBackendRoute from "./getBackendRoute";
+// import fs from "node:fs/promises";
 
-async function getBase64BlurPlaceholder(path) {
-  const file = await fs.readFile(path);
-  const { base64 } = await getPlaiceholder(file);
+
+// понять как из блоба сделать файл
+async function getBase64BlurPlaceholder(filename) {
+  const res = await fetch(`${getBackendRoute()}/${filename}`);
+  const blob = await res.blob();
+  const data = await blob.arrayBuffer();
+  const { base64 } = await getPlaiceholder(data);
   return base64;
 }
 

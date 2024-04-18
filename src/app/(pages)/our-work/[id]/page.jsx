@@ -1,22 +1,22 @@
-import projects from "@/projects.json";
 import Project from "@/components/Project";
 import TextSpinner from "@/components/TextSpinner";
 import ReduxProvider from "@/components/ReduxProvider";
 import PageLoadedCheck from "@/components/PageLoadedCheck";
+import getProject from "@/utils/getProject";
 
-export function generateMetadata({ params }) {
+export async function generateMetadata({ params }) {
   const { id } = params;
-  const project = projects.find((p) => p.id === Number(id));
+  const project = await getProject(id);
   return {
     title: project.name,
     description: project.description,
   };
 }
 
-export default function Page({ params }) {
+export default async function Page({ params }) {
   const { id } = params;
 
-  const project = projects.find((p) => p.id === Number(id));
+  const project = await getProject(id);
 
   return (
     <section>
