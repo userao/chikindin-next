@@ -1,4 +1,3 @@
-
 import HomeCarousel from "@/components/HomeCarousel";
 import TextSpinner from "@/components/TextSpinner";
 import AboutUs from "@/components/AboutUs";
