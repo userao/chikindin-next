@@ -56,13 +56,12 @@ export default function ProjectImages({ images }) {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mx-2">
         {shownImages &&
           shownImages.map((src, i) => {
-            const filepath = src.replace("public", "").replaceAll("\\", "/");
             return (
-              <div key={filepath} className="relative h-[20rem] cursor-pointer">
+              <div key={src} className="relative h-[20rem] cursor-pointer">
                 <Image
-                  onClick={() => setModalImage({ filepath })}
+                  onClick={() => setModalImage({ src })}
                   alt={`Project image #${i + 1}`}
-                  src={filepath}
+                  src={src}
                   fill={true}
                   sizes="100%"
                   quality={5}

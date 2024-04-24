@@ -40,7 +40,6 @@ export default function ProjectsCarousel({ carouselData }) {
         }}
         modules={[Mousewheel, Pagination]}>
         {carouselData.map((project) => {
-          const filepath = project.src.replace("public", "").replaceAll("\\", "/");
           return (
             <SwiperSlide key={project.id} className="flex content-center items-center">
               <Link
@@ -48,12 +47,11 @@ export default function ProjectsCarousel({ carouselData }) {
                 className="block w-full h-full relative"
                 onClick={handleClick}>
                 <Image
-                  src={filepath}
+                  src={project.src}
                   alt={project.name}
                   fill={true}
                   sizes="100%"
-                  placeholder={project.base64}
-                  blurDataURL={project.base64}
+                  placeholder={project.shimmer}
                   className="object-cover"
                 />
                 <div className="absolute w-full h-full top-0 start-0 flex justify-center flex-col bg-card-hover opacity-0 hover:opacity-100 duration-500 cursor-pointer">

@@ -32,16 +32,15 @@ export default function HomeCarousel({ images = null }) {
         }}
         speed={carouselSpeed}
         modules={[Autoplay]}>
-        {images.map(({ src, base64 }, i) => {
-          const filepath = src.replace("public", "").replaceAll("\\", "/");
+        {images.map(({ src, shimmer }, i) => {
           return (
             <SwiperSlide key={src} className="flex content-center items-center">
               <Image
-                src={filepath}
+                src={src}
                 alt={`Project image #${i + 1}`}
                 fill={true}
                 sizes="100%"
-                placeholder={base64}
+                placeholder={shimmer}
                 className="object-cover"
               />
             </SwiperSlide>

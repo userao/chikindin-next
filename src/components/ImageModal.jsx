@@ -16,7 +16,7 @@ export default function ImageModal({ image, handleClose }) {
       <div className="relative flex z-20 w-full h-full max-w-[70vw] max-h-[90vh]">
         <Image
           alt={`Project image`}
-          src={image.filepath}
+          src={image.src}
           placeholder={shimmer}
           fill
           sizes="100vw"

@@ -5,7 +5,6 @@ import { useEffect, useRef } from "react";
 
 export default function ProjectCard({ card }) {
   const fadeBlockRef = useRef(null);
-  const filepath = card.src.replace("public", "").replaceAll("\\", "/");
 
   useEffect(() => {
     if (!fadeBlockRef.current) return;
@@ -27,7 +26,7 @@ export default function ProjectCard({ card }) {
     <div>
       <div className="h-screen relative mb-4">
         <Image
-          src={filepath}
+          src={card.src}
           alt={card.name}
           placeholder="blur"
           blurDataURL={card.placeholder}

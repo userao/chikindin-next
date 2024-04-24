@@ -2,9 +2,9 @@ import ProjectsCarousel from "@/components/ProjectsCarousel";
 import TextSpinner from "@/components/TextSpinner";
 import ReduxProvider from "@/components/ReduxProvider";
 import PageLoadedCheck from "@/components/PageLoadedCheck";
-import getBase64BlurPlaceholder from "@/utils/getBase64BlurPlaceholder";
 import getProjects from "@/utils/getProjects";
 import getBackendRoute from "@/utils/getBackendRoute";
+import getBase64ShimmerPlaceholder from "@/utils/getBase64ShimmerPlaceholder";
 
 export const metadata = {
   title: "Chikindin-design: Наши работы",
@@ -18,8 +18,9 @@ export default async function OurWork() {
   const carouselImages = await Promise.all(
     projects.map(async (project) => {
       const firstImageFilename = project.photos[0].filename;
-      const base64 = await getBase64BlurPlaceholder(firstImageFilename);
-      return { src: `${backendRoute}/${firstImageFilename}`, base64 };
+      const imageSrc = `${backendRoute}/api/photos/${firstImageFilename}`;
+      const shimmer = await getBase64ShimmerPlaceholder();
+      return { src: imageSrc, shimmer };
     })
     );
 

@@ -3,9 +3,9 @@ import TextSpinner from "@/components/TextSpinner";
 import AboutUs from "@/components/AboutUs";
 import ReduxProvider from "@/components/ReduxProvider";
 import PageLoadedCheck from "@/components/PageLoadedCheck";
-import getBase64BlurPlaceholder from "@/utils/getBase64BlurPlaceholder";
 import getBackendRoute from "@/utils/getBackendRoute";
 import getProjects from "@/utils/getProjects";
+import getBase64ShimmerPlaceholder from "@/utils/getBase64ShimmerPlaceholder";
 
 
 export default async function Home() {
@@ -20,9 +20,10 @@ export default async function Home() {
 
   const carouselImages = await Promise.all(randomProjectImagesFilenames.map(async (filename) => {
     if (!filename) return [];
-    const base64 = await getBase64BlurPlaceholder(filename);
+    const imageSrc = `${backendRoute}/api/photos/${filename}`;
+    const shimmer = await getBase64ShimmerPlaceholder(imageSrc);
 
-    return { src: `${backendRoute}/${filename}`, base64 };
+    return { src: imageSrc, shimmer };
   }));
 
   return (
