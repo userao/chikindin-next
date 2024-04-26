@@ -3,7 +3,7 @@
 import React from "react";
 import { Field, useFormikContext } from "formik";
 
-const AnswerVariantsTypeQuestion = ({ question, customHandleChange = null }) => {
+const AnswerVariantsTypeQuestion = ({ question }) => {
   const { options, type, title, required } = question;
   const { handleChange, touched, errors, isValid, submitCount } = useFormikContext();
 
@@ -22,21 +22,18 @@ const AnswerVariantsTypeQuestion = ({ question, customHandleChange = null }) => 
     <div className="py-4 animate-fadeIn">
       <p className="pb-1 font-bold text-lg">{question.title}</p>
       {options &&
-        options.map((option) => {
+        options.map((option, i) => {
           return (
-            <div className="py-1" key={option.id}>
+            <div className="py-1" key={i}>
               <Field
                 type={type}
-                id={option.id}
+                id={i}
                 name={title}
                 value={option.title}
-                onChange={(e) => {
-                  if (customHandleChange) customHandleChange(e);
-                  handleChange(e);
-                }}
+                onChange={handleChange}
                 validate={required ? (value) => checkIfAnswered(value) : null}
               />
-              <label htmlFor={option.id} className="ps-1">
+              <label htmlFor={i} className="ps-1">
                 {option.title}
               </label>
             </div>
