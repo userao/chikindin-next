@@ -82,24 +82,56 @@ export default function AddItemModal({ item, handleClose }) {
   }
 
   function projectNormalize(values) {
-    console.log(values);
+    const normalizedProject = {
+      id: Date.now(),
+      ...values,
+      photos: values.files,
+    };
+    delete normalizedProject.files;
+    return normalizedProject;
   }
 
-  const normalizeFunc = {
+  const normalizeItemFunc = {
     projects: projectNormalize,
     questions: questionNormalize,
   };
 
-  function handleSubmit(values) {
-    const normalizedValues = normalizeFunc[item](values[item]);
-    setSubmitState("submitting");
-    fetch(`${backendRoute}/api/${item}`, {
+  function createQuestion(question) {
+    return fetch(`${backendRoute}/api/questions`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(normalizedValues),
-    })
+      body: JSON.stringify(question),
+    });
+  }
+
+  function createProject(project) {
+    const formData = new FormData();
+    for (const key in project) {
+      if (Array.isArray(project[key])) {
+        project[key].forEach((el) => {
+          formData.append(key, el);
+        });
+      } else {
+        formData.append(key, project[key]);
+      }
+    }
+    return fetch(`${backendRoute}/api/projects`, {
+      method: "POST",
+      body: formData,
+    });
+  }
+
+  const createItemFunc = {
+    projects: createProject,
+    questions: createQuestion,
+  };
+
+  function handleSubmit(values) {
+    const normalizedValues = normalizeItemFunc[item](values[item]);
+    setSubmitState("submitting");
+    createItemFunc[item](normalizedValues)
       .then(() => {
         setSubmitState("success");
         handleClose();
