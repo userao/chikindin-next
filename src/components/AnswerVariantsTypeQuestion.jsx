@@ -3,9 +3,13 @@
 import React from "react";
 import { Field, useFormikContext } from "formik";
 
-const AnswerVariantsTypeQuestion = ({ question }) => {
+const AnswerVariantsTypeQuestion = ({
+  question,
+  customHandleChange = null,
+}) => {
   const { options, type, title, required } = question;
-  const { handleChange, touched, errors, isValid, submitCount } = useFormikContext();
+  const { handleChange, touched, errors, isValid, submitCount } =
+    useFormikContext();
 
   function checkIfAnswered(value) {
     let error;
@@ -30,7 +34,14 @@ const AnswerVariantsTypeQuestion = ({ question }) => {
                 id={i}
                 name={title}
                 value={option.title}
-                onChange={handleChange}
+                onChange={
+                  customHandleChange
+                    ? (e) => {
+                        customHandleChange(e);
+                        handleChange(e);
+                      }
+                    : handleChange
+                }
                 validate={required ? (value) => checkIfAnswered(value) : null}
               />
               <label htmlFor={i} className="ps-1">

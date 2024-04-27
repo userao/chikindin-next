@@ -27,7 +27,7 @@ export default function AddQuestionForm() {
       name: "projectType",
       label: "Тип объекта",
       type: "radio",
-      options: ["Жилой", "Общественный"],
+      options: ["Жилой", "Общественный", "Любой"],
     },
     {
       name: "required",

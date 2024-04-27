@@ -1,10 +1,16 @@
+import { useState } from "react";
 import * as Yup from "yup";
 import AddQuestionForm from "./AddQuestionForm";
 import AddProjectForm from "./AddProjectForm";
 import { Formik, Form } from "formik";
+import getBackendRoute from "@/utils/getBackendRoute";
+import Loading from "./Loading";
 
 export default function AddItemModal({ item, handleClose }) {
-  const FormFields = item === "projects" ? <AddProjectForm /> : <AddQuestionForm />;
+  const backendRoute = getBackendRoute();
+  const FormFields =
+    item === "projects" ? <AddProjectForm /> : <AddQuestionForm />;
+  const [submitState, setSubmitState] = useState("not submitted");
   const schemas = {
     projects: Yup.object().shape({
       projects: Yup.object({
@@ -13,6 +19,7 @@ export default function AddItemModal({ item, handleClose }) {
         year: Yup.string().required(),
         use: Yup.string().required(),
         location: Yup.string().required(),
+        files: Yup.array().min(1).required(),
       }),
     }),
     questions: Yup.object().shape({
@@ -36,7 +43,7 @@ export default function AddItemModal({ item, handleClose }) {
       year: "",
       use: "",
       location: "",
-      photos: [],
+      files: [],
     },
     questions: {
       title: "",
@@ -47,10 +54,59 @@ export default function AddItemModal({ item, handleClose }) {
     },
   };
 
+  function questionNormalize(values) {
+    const answersMapping = {
+      projectType: {
+        Жилой: "living",
+        Общественный: "civic",
+        Любой: "all",
+      },
+      required: {
+        Да: true,
+        Нет: false,
+      },
+      type: {
+        Текст: "input",
+        "Один вариант": "radio",
+        "Несколько вариантов": "checkbox",
+      },
+    };
+
+    return {
+      ...values,
+      type: answersMapping.type[values.type],
+      projectType: answersMapping.projectType[values.projectType],
+      required: answersMapping.required[values.required],
+      options: values.options.split("\n"),
+    };
+  }
+
+  function projectNormalize(values) {
+    console.log(values);
+  }
+
+  const normalizeFunc = {
+    projects: projectNormalize,
+    questions: questionNormalize,
+  };
+
   function handleSubmit(values) {
-    const formValues = values[item];
-    console.log("submitted:\n", formValues);
-    handleClose();
+    const normalizedValues = normalizeFunc[item](values[item]);
+    setSubmitState("submitting");
+    fetch(`${backendRoute}/api/${item}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(normalizedValues),
+    })
+      .then(() => {
+        setSubmitState("success");
+        handleClose();
+      })
+      .catch((e) => {
+        setSubmitState("error");
+      });
   }
 
   return (
@@ -62,24 +118,37 @@ export default function AddItemModal({ item, handleClose }) {
             validateOnChange={false}
             validateOnBlur={false}
             validationSchema={schemas[item]}
-            onSubmit={(values) => handleSubmit(values)}>
-            {({ isValid, errors, values }) => {
-              console.log(errors);
+            onSubmit={(values) => handleSubmit(values)}
+          >
+            {({ isValid, isSubmitting }) => {
               return (
                 <Form className="relative">
-                  {FormFields}
-                  {isValid ? null : (
-                    <div className="absolute text-red-400 bottom-12">Заполните обязательные поля</div>
+                  {submitState !== "submitting" ? (
+                    FormFields
+                  ) : (
+                    <div className="flex items-center justify-center h-[10rem]">
+                      <Loading />
+                    </div>
                   )}
+                  {!isValid || submitState === "error" ? (
+                    <div className="absolute text-red-400 bottom-12">
+                      {!isValid
+                        ? "Заполните обязательные поля"
+                        : "Ошибка связи"}
+                    </div>
+                  ) : null}
                   <div className="flex justify-between gap-4 mt-6">
                     <button
                       type="submit"
-                      className="border-green-700 border-2 rounded-md p-2 w-[8rem] hover:bg-green-700 hover:text-white duration-300">
+                      disabled={submitState === "submitting"}
+                      className="border-green-700 border-2 rounded-md p-2 w-[8rem] hover:bg-green-700 hover:text-white duration-300"
+                    >
                       Добавить
                     </button>
                     <button
                       onClick={handleClose}
-                      className="border-red-700 border-2 rounded-md p-2 w-[8rem] hover:bg-red-700 hover:text-white duration-300">
+                      className="border-red-700 border-2 rounded-md p-2 w-[8rem] hover:bg-red-700 hover:text-white duration-300"
+                    >
                       Отменить
                     </button>
                   </div>
