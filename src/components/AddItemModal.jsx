@@ -152,7 +152,7 @@ export default function AddItemModal({ item, handleClose }) {
             validationSchema={schemas[item]}
             onSubmit={(values) => handleSubmit(values)}
           >
-            {({ isValid, isSubmitting }) => {
+            {({ isValid }) => {
               return (
                 <Form className="relative">
                   {submitState !== "submitting" ? (

@@ -10,7 +10,7 @@ function AboutUs() {
   return (
     <section className="p-5 md:px-[2rem] xl:px-[8rem]">
       <h1 className="uppercase text-2xl mb-8 font-bold md:hidden text-md">О нас</h1>
-      <div className="flex flex-col md:flex-row justify-center gap-6 mb-[5.625rem]">
+      <div className="flex flex-col md:flex-row justify-center gap-6 mb-5 md:mb-[7rem]">
         <div className="basis-1/2 self-center">
           <Image
             src={founders}
@@ -43,7 +43,7 @@ function AboutUs() {
           </p>
         </div>
       </div>
-      <div className="relative w-full md:w-3/4 lg:w-3/7 group m-0 md:mx-auto lg:m-[5rem]">
+      <div className="relative w-full md:w-3/4 lg:w-3/7 group m-0 mx-auto md:mb-5">
         <Image
           className="hidden md:block
             absolute -start-[110px] -top-[70px]
