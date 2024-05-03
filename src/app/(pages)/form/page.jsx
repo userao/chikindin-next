@@ -3,8 +3,6 @@ import TextSpinner from "@/components/TextSpinner";
 import ReduxProvider from "@/components/ReduxProvider";
 import PageLoadedCheck from "@/components/PageLoadedCheck";
 import getBackendRoute from "@/utils/getBackendRoute";
-import { Suspense } from "react";
-import Loading from "@/components/Loading";
 
 export const metadata = {
   title: "Chikindin-design: Анкета",

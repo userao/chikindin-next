@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import cn from "classnames";
 
 export default function TextSpinner({ text, radius, color }) {

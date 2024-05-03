@@ -1,7 +1,7 @@
 import { Field, useFormikContext } from "formik";
 
 export default function AddProjectForm() {
-  const { values, handleChange, setFieldValue } = useFormikContext();
+  const { values, setFieldValue } = useFormikContext();
   const inputFields = [
     {
       name: "name",
