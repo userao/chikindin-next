@@ -143,8 +143,9 @@ export default function AddItemModal({ item, handleClose }) {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-card-hover">
-      <div className="w-80 bg-white rounded-xl">
-        <div className="p-5">
+      <div className="w-1/3 max-h-[80%] bg-white rounded-xl overflow-auto">
+        <div className="p-5 px-8">
+          <p className="text-center text-xl">Добавить</p>
           <Formik
             initialValues={initialValues}
             validateOnChange={false}
@@ -169,7 +170,7 @@ export default function AddItemModal({ item, handleClose }) {
                         : "Ошибка связи"}
                     </div>
                   ) : null}
-                  <div className="flex justify-between gap-4 mt-6">
+                  <div className="flex justify-center gap-4 mt-6">
                     <button
                       type="submit"
                       disabled={submitState === "submitting"}

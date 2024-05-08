@@ -1,12 +1,21 @@
 import getBackendRoute from "@/utils/getBackendRoute";
 
-export default function DeleteItemModal({ type, itemId, handleClose }) {
+export default function DeleteItemModal({
+  type,
+  itemId,
+  handleClose,
+  items,
+  setItems,
+}) {
   const backendRoute = getBackendRoute();
   function deleteItem() {
     fetch(`${backendRoute}/api/${type}/${itemId}`, {
       method: "DELETE",
+    }).then(() => {
+      const newItems = items.filter((item) => item.id !== itemId);
+      setItems(newItems);
+      handleClose();
     });
-    handleClose();
   }
 
   return (

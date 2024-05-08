@@ -57,6 +57,8 @@ export default function ItemsTable({ type }) {
                         type={type}
                         handleClose={handleClose}
                         itemId={item.id}
+                        setItems={setItems}
+                        items={items}
                       />
                     );
                   }}
