@@ -45,7 +45,7 @@ export default function TextSpinner({ text, radius, color }) {
 
   return (
     <div
-      className="z-50 pointer-events-none fixed justify-center items-center top-5 right-3 animate-[spin_40s_linear_infinite] hidden lg:flex"
+      className="z-50 pointer-events-none fixed justify-center items-center -top-[5rem] -right-[5rem] animate-reverse-spin hidden lg:flex"
       style={{ width: radius * 2, aspectRatio: "1/1" }}>
       <div
         className="text-center text-sm"

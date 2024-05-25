@@ -6,7 +6,7 @@ import instaLogo from "public/svg/insta_logo.svg";
 const Footer = () => {
   return (
     <footer className="bg-neutral-100">
-      <div className="flex items-center justify-between h-footer px-6">
+      <div className="flex items-center justify-between h-footer px-5 md:px-8 2xl:px-[16rem]">
         <div className="">
           <p>chikindin@form.me</p>
           <p>+7 999 178-86-55</p>

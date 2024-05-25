@@ -17,6 +17,29 @@
 }
 
 @font-face {
+  font-family: "TT Norms Pro";
+  src: url("/fonts/TT Norms Pro Bold.otf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "TT Norms Pro";
+  src: url("/fonts/TT Norms Pro Medium.otf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "TT Norms Pro";
+  src: url("/fonts/TT Norms Pro Regular.otf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "TT Norms Pro";
+  src: url("/fonts/TT Norms Pro Light.otf");
+  font-weight: 200;
+}
+
+
+
+@font-face {
   font-family: "Comfortaa";
   src: url(/fonts/Comfortaa-SemiBold.ttf);
   font-weight: 600;

@@ -29,7 +29,7 @@ export default async function Home() {
   return (
     <main>
       <section className="h-screen-no-scroll mb-5">
-        <TextSpinner text={"chikindin design"} radius={150} color={"white"} />
+        <TextSpinner text={"chikindin design"} radius={150} color={"brand-primary-400"} />
         <HomeCarousel images={carouselImages} />
         <ReduxProvider>
           <PageLoadedCheck />

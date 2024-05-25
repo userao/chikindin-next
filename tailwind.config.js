@@ -26,24 +26,30 @@ module.exports = {
         }
       },
       height: {
-        'header': '4rem',
-        'footer': '6.25rem',
+        'header': '5rem',
+        'footer': '5rem',
         'screen-no-scroll': 'calc(100vh - 4rem)',
       },
       spacing: {
         'navbar-links': '2.625rem',
       },
       fontFamily: {
-        'primary': ['Comfortaa', 'sans-serif'],
+        'primary': ['TT Norms Pro', 'sans-serif'],
         'list-marker': ['Indie Flower', 'cursive'],
       },
       animation: {
         fadeIn: 'fadeIn 1s ease-in-out',
+        'reverse-spin': 'reverse-spin 40s linear infinite',
       },
       keyframes: () => ({
         fadeIn: {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
+        },
+        'reverse-spin': {
+          from: {
+            transform: 'rotate(360deg)'
+          },
         },
       }),
     },

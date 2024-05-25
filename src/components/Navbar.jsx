@@ -24,12 +24,12 @@ const Navbar = () => {
   return (
     <nav className="bg-neutral-100">
       <div className="relative flex items-center justify-center h-header">
-        <div className="absolute start-8">
+        <div className="absolute start-5 md:start-8 2xl:start-[16rem]">
           <Link href="/" onClick={handleClick}>
             <Image className="" src={brandLogo} alt="brand logo" loading="eager" priority={true} />
           </Link>
         </div>
-        <ul className="items-center gap-navbar-links uppercase hidden sm:flex">
+        <ul className="items-center gap-navbar-links font-semibold uppercase hidden sm:flex xl:text-xl">
           <li className="hover:text-brand-primary-400 duration-300">
             <Link href="/our-work" onClick={handleClick}>
               Наши работы
