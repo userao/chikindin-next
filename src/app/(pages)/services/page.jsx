@@ -13,7 +13,7 @@ export default function Services() {
       <TextSpinner text="услуги" radius={150} color={"brand-primary-400"} />
       <section className="flex flex-col items-center">
         <div className="flex gap-10 mx-6 flex-wrap justify-center mt-10">
-          <div className="w-[17rem] duration-500 py-4 px-3 relative rounded-xl border border-transparent hover:border-brand-primary-400 hover:bg-brand-primary-100/50">
+          <div className="w-[17.5rem] duration-500 py-4 px-3 relative rounded-xl border border-transparent hover:border-brand-primary-400 hover:bg-brand-primary-100/50">
             <h3 className="uppercase text-3xl mb-10">
               Пакет <span className="text-brand-primary-400">C</span>
             </h3>
@@ -28,7 +28,7 @@ export default function Services() {
               1800 р/м<span style={{ fontVariantPosition: "super" }}>2</span>
             </p>
           </div>
-          <div className="w-[17rem] duration-500 py-4 px-3 relative rounded-xl border border-transparent hover:border-brand-primary-400 hover:bg-brand-primary-100/50">
+          <div className="w-[17.5rem] duration-500 py-4 px-3 relative rounded-xl border border-transparent hover:border-brand-primary-400 hover:bg-brand-primary-100/50">
             <h3 className="uppercase text-3xl mb-10">
               Пакет <span className="text-brand-primary-400">H</span>
             </h3>
@@ -43,7 +43,7 @@ export default function Services() {
               2000 р/м<span style={{ fontVariantPosition: "super" }}>2</span>
             </p>
           </div>
-          <div className="w-[17rem] duration-500 py-4 px-3 relative rounded-xl border border-transparent hover:border-brand-primary-400 hover:bg-brand-primary-100/50">
+          <div className="w-[17.5rem] duration-500 py-4 px-3 relative rounded-xl border border-transparent hover:border-brand-primary-400 hover:bg-brand-primary-100/50">
             <h3 className="uppercase text-3xl mb-10">
               Пакет <span className="text-brand-primary-400">CH</span>
             </h3>
@@ -59,7 +59,7 @@ export default function Services() {
               2500 р/м<span style={{ fontVariantPosition: "super" }}>2</span>
             </p>
           </div>
-          <div className="w-[17rem] duration-500 py-4 px-3 relative rounded-xl border border-transparent hover:border-brand-primary-400 hover:bg-brand-primary-100/50">
+          <div className="w-[17.5rem] duration-500 py-4 px-3 relative rounded-xl border border-transparent hover:border-brand-primary-400 hover:bg-brand-primary-100/50">
             <h3 className="uppercase text-3xl mb-10">
               Пакет{" "}
               <span className="text-brand-primary-400 relative">
@@ -82,21 +82,22 @@ export default function Services() {
         </div>
       </section>
       <section className="flex justify-center">
-        <div className="max-w-[700px] mx-4 my-8">
-          <h2 className="uppercase my-6">Этапы работ</h2>
+        <div className="max-w-[800px] mx-4 my-8">
+          <h2 className="uppercase text-3xl my-12">Этапы работ</h2>
           <ol className="list-services-numbered">
-            <li className="mb-6">
-              <h3 className="uppercase pl-10">
+            <li className="flex flex-col md:flex-row gap-10">
+              <h3 className="pl-10 text-xl uppercase basis-full">
                 Составление технического задания на проектирование дизайн-проекта
               </h3>
-              <p className="lowercase">
-                Формирование всех запросов и пожеланий на проектирование вашего пространства.
+              <p className="basis-full italic">
+                - Формирование всех запросов и пожеланий на проектирование вашего пространства.
               </p>
             </li>
-            <li className="mb-6">
-              <h3 className="uppercase pl-10 mb-2">Планировочное решение</h3>
-              <p className="lowercase">
-                На основании технического задания и обмерного плана выполняется несколько
+            <hr className="border-1 border-brand-primary-400 my-8"/>
+            <li className="flex flex-col md:flex-row gap-10">
+              <h3 className="pl-10 text-xl uppercase basis-full">Планировочное решение</h3>
+              <p className="basis-full italic">
+                - На основании технического задания и обмерного плана выполняется несколько
                 планировочных решений. Одно из них дорабатывается и является базой для создания
                 объемно-планировочного решения, скетчей и визуализаций. На этом этапе идёт
                 консультация с подрядчиками по всем инженерным системам, чтобы использовать
@@ -104,24 +105,27 @@ export default function Services() {
                 пользу функции и красоты.
               </p>
             </li>
-            <li className="mb-6">
-              <h3 className="uppercase pl-10 mb-2">Эскизный проект</h3>
-              <p className="lowercase">
-                Предварительная документация с планами и развёртками стен для составления
+            <hr className="border-1 border-brand-primary-400 my-8"/>
+            <li className="flex flex-col md:flex-row gap-10">
+              <h3 className="pl-10 text-xl uppercase basis-full">Эскизный проект</h3>
+              <p className="basis-full italic">
+                - Предварительная документация с планами и развёртками стен для составления
                 спецификаций по комплектации и строительно-монтажным работам.
               </p>
             </li>
-            <li className="mb-6">
-              <h3 className="uppercase pl-10 mb-2">Комплектация</h3>
-              <p className="lowercase">
-                Подбор мебели, сантехники, оборудования, света и отделочных материалов. Поездки по
+            <hr className="border-1 border-brand-primary-400 my-8"/>
+            <li className="flex flex-col md:flex-row gap-10">
+              <h3 className="pl-10 text-xl uppercase basis-full">Комплектация</h3>
+              <p className="basis-full italic">
+                - Подбор мебели, сантехники, оборудования, света и отделочных материалов. Поездки по
                 салонам и магазинам.
               </p>
             </li>
-            <li className="mb-6">
-              <h3 className="uppercase pl-10 mb-2">Визуализация</h3>
-              <p className="lowercase">
-                Фотореалистичная картинка показывает все объёмы и раскрывает наше виденье по
+            <hr className="border-1 border-brand-primary-400 my-8"/>
+            <li className="flex flex-col md:flex-row gap-10">
+              <h3 className="pl-10 text-xl uppercase basis-full">Визуализация</h3>
+              <p className="basis-full italic">
+                - Фотореалистичная картинка показывает все объёмы и раскрывает наше виденье по
                 эстетическому и функциональному наполнению пространства. Рабочая документация
                 Финальный альбом документации для строителей со всеми согласованными планами,
                 развёртками, узлами и спецификациями. Можно начинать строить!
