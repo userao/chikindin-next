@@ -38,14 +38,22 @@ function AboutUs() {
         <Image
           src={arrow}
           alt="button arrow"
-          className="absolute hidden -right-[10rem] -bottom-[3rem] rotate-[35deg] scale-75 lg:block
-          group-hover:-translate-x-8 group-hover:-translate-y-3 duration-300"
+          className="
+            absolute hidden -z-10
+            -right-[10rem] -bottom-[3rem]
+            rotate-[35deg] scale-75 lg:block
+            group-hover:-translate-x-8
+            group-hover:-translate-y-3 duration-300"
         />
         <Image
           src={arrow}
           alt="button arrow"
-          className="absolute hidden -right-[8.5rem] bottom-[1rem] scale-75 lg:block
-          group-hover:-translate-x-8 group-hover:translate-y-3 duration-300"
+          className="
+            absolute hidden -z-10
+            -right-[8.5rem] bottom-[1rem]
+            scale-75 lg:block
+            group-hover:-translate-x-8
+            group-hover:translate-y-3 duration-300"
         />
         <Link href="/form">
           <button
